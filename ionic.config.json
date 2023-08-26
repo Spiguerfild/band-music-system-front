@@ -1,0 +1,7 @@
+{
+  "name": "band-music-system-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
