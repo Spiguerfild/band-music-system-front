@@ -1,0 +1,32 @@
+ion-img {
+  width: 220px;
+  align-self: center;
+  margin: auto;
+  display: block;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+ion-footer {
+  margin-bottom: 30px;
+  box-shadow: none;
+  padding: 0 15px;
+}
+
+ion-button {
+  margin: 10px 0;
+  color: #0A271F;
+  font-size: 25px;
+
+}
+
+.icon-spacing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  ion-icon {
+    margin-left: 4.5rem;
+
+  }
+}
