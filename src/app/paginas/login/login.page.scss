@@ -4,19 +4,25 @@ ion-content {
 
 h1 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-family: 'Roboto Flex', sans-serif;
 }
 
 form {
-  padding: 0 50px 0 34px;
-  margin-top: 45px;
+  padding: 0 20px;
+  margin-top: 30px;
 }
 
-ion-item {
-  margin-bottom: 20px;
-}
 
 ion-input {
-  width: 100%;
+  margin-bottom: 20px;
+  // border-bottom: .2px solid #55736A;
+}
+
+ion-button {
+  margin-top: 65px;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #0A271F;
+
 }

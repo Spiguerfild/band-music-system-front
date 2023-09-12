@@ -13,7 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./paginas/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'view-home',
+    loadChildren: () => import('./viewMusicist/view-home/view-home.module').then(m => m.ViewHomePageModule)
   },
 ];
 

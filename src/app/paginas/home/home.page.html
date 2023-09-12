@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
 
-  <ion-img src="assets/logo-band-music.png" alt="The Wisconsin State Capitol building in Madison, WI at night">
+  <ion-img src="assets/logo-band-music.png">
   </ion-img>
 
 </ion-content>
 
 <ion-footer>
-  <ion-button expand="block" fill="solid" class="custom-button">
+  <ion-button (click)="functionToViewHome()" expand="block" fill="solid" class="custom-button">
     <ion-icon slot="end" src="assets/song-svgrepo-com.svg"></ion-icon>
     <span class="button-text">Músico</span>
   </ion-button>

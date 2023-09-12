@@ -13,6 +13,10 @@ export class HomePage implements OnInit {
   functionToLogin() {
     this.router.navigate(['/login'])
   }
+  functionToViewHome() {
+    this.router.navigate(['/view-home'])
+  }
+
   ngOnInit() {
 
   }

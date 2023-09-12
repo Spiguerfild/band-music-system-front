@@ -1,0 +1,59 @@
+ion-toolbar {
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+.text-top {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15px;
+}
+
+.title-top {
+  font-family: 'Archivo', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.top-icon {
+  width: 75px;
+  height: 75px;
+}
+
+// .calendarios {
+//   width: 50px;
+//   height: 50px;
+// }
+
+ion-card {
+  background-color: #fff;
+  /* Cor de fundo do cartão */
+  border-radius: 8px;
+  /* Arredondamento das bordas do cartão */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Sombra do cartão */
+  transition: transform 0.2s ease-in-out;
+  /* Efeito de transição suave */
+
+  &:hover {
+    transform: scale(1.02);
+    /* Efeito de escala no hover */
+  }
+}
+
+/* Estilo para o conteúdo do cartão (ícone e título) */
+ion-card-content,
+ion-card-header {
+  text-align: center;
+  /* Centralizar o texto horizontalmente */
+}
+
+/* Estilo para o ícone */
+.calendarios {
+  width: 64px;
+  /* Largura do ícone */
+  height: 64px;
+  /* Altura do ícone */
+  margin: 16px auto;
+  /* Margem superior e inferior para centralizar verticalmente */
+
+}
