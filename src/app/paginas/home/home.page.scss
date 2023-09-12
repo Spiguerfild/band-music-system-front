@@ -20,13 +20,18 @@ ion-button {
 
 }
 
-.icon-spacing {
+.custom-button {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 
   ion-icon {
-    margin-left: 4.5rem;
+    margin-right: 8px;
+  }
 
+  .button-text {
+    flex-grow: 1;
+    text-align: start;
+    font-family: 'Archivo', sans-serif;
+    text-transform: capitalize;
   }
 }
