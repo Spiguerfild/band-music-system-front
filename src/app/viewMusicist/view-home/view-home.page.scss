@@ -1,3 +1,5 @@
+@import '../../../theme/variables.scss';
+
 ion-toolbar {
   --padding-start: 10px;
   --padding-end: 10px;
@@ -49,11 +51,28 @@ ion-card-header {
 
 /* Estilo para o ícone */
 .calendarios {
-  width: 64px;
+  width: 70px;
   /* Largura do ícone */
-  height: 64px;
+  height: 70px;
   /* Altura do ícone */
   margin: 16px auto;
   /* Margem superior e inferior para centralizar verticalmente */
+}
 
+/*botão de voltar*/
+.backbtn {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: var(--ion-color-primary);
+}
+
+
+/*icone de voltar*/
+.icon-back {
+  font-size: 4rem;
 }
