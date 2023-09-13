@@ -1,16 +1,20 @@
 <ion-content [fullscreen]="true">
-
-  <ion-text color="primary">
+  <ion-text color="secondary">
     <h1>Login</h1>
   </ion-text>
 
-  <form>
+  <div (ngSubmit)="onSubmit()">
 
-    <ion-input type="text" fill="solid" label="Usuário" labelPlacement="floating" helperText=""></ion-input>
 
-    <ion-input type="password" fill="solid" label="Senha" labelPlacement="floating" helperText=""></ion-input>
 
-    <ion-button expand="block">Entrar</ion-button>
-  </form>
+    <ion-input type="text" fill="solid" label="Usuário" labelPlacement="floating" [(ngModel)]="nome"
+      helperText=""></ion-input>
+
+    <ion-input type="password" fill="solid" label="Senha" labelPlacement="floating" helperText=""
+      [(ngModel)]="senha"></ion-input>
+
+    <ion-button (click)="verificaLogin()" expand="block">Entrar</ion-button>
+
+  </div>
 
 </ion-content>
