@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <h1 class="title-top">Olá Líder</h1>
+    <ion-icon class="top-icon" slot="end" src="assets/chefe-home.svg" />
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="vertical-center" [fullscreen]="true">
+  <div class="vertical-center">
+
+    <ion-button color="secondary" expand="block" fill="outline" class="custom-button">Cadastro</ion-button>
+    <ion-button color="secondary" expand="block" fill="outline" class="custom-button">Edição</ion-button>
+  </div>
+
+  <ion-icon button (click)="backPage()" color="secondary" class="back-btn" src="assets/back-btn.svg"></ion-icon>
+
+</ion-content>

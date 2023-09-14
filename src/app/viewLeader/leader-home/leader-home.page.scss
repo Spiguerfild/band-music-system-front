@@ -5,25 +5,30 @@ ion-toolbar {
   --padding-end: 10px;
 }
 
-.text-top {
-  font-family: 'Archivo', sans-serif;
-  font-size: 15px;
-}
-
 .title-top {
+  color: var(--ion-color-secondary);
   font-family: 'Archivo', sans-serif;
   font-size: 28px;
   font-weight: 500;
 }
 
 .top-icon {
+
   width: 75px;
   height: 75px;
 }
 
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+}
 
-
-ion-card {
+.custom-button {
+  width: 70%;
   background-color: #fff;
   /* Cor de fundo do cartão */
   border-radius: 8px;
@@ -40,24 +45,6 @@ ion-card {
   }
 }
 
-/* Estilo para o conteúdo do cartão (ícone e título) */
-ion-card-content,
-ion-card-header {
-  text-align: center;
-  /* Centralizar o texto horizontalmente */
-}
-
-/* Estilo para o ícone */
-.calendarios {
-  width: 70px;
-  /* Largura do ícone */
-  height: 70px;
-  /* Altura do ícone */
-  margin: 16px auto;
-  /* Margem superior e inferior para centralizar verticalmente */
-}
-
-/*botão de voltar*/
 .back-btn {
   width: 40px;
   height: 40px;

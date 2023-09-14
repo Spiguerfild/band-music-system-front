@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
 
 
-  <ion-card (click)="realizarAcao()">
+  <ion-card button (click)="realizarAcao()">
     <ion-card-content>
       <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
     </ion-card-content>
@@ -17,7 +17,7 @@
       Escala da semana
     </ion-card-header>
   </ion-card>
-  <ion-card (click)="realizarAcao()">
+  <ion-card button (click)="realizarAcao()">
     <ion-card-content>
       <ion-icon class="calendarios" src="assets/calendarMaior.svg"></ion-icon>
     </ion-card-content>
@@ -26,5 +26,5 @@
     </ion-card-header>
   </ion-card>
 
-  <ion-icon color="secondary" class="back-btn" src="assets/back-btn.svg"></ion-icon>
+  <ion-icon button (click)="backPage()" color="secondary" class="back-btn" src="assets/back-btn.svg"></ion-icon>
 </ion-content>

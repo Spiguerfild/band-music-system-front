@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'view-home',
     loadChildren: () => import('./viewMusicist/view-home/view-home.module').then(m => m.ViewHomePageModule)
+  },  {
+    path: 'leader-home',
+    loadChildren: () => import('./viewLeader/leader-home/leader-home.module').then( m => m.LeaderHomePageModule)
   },
+
 ];
 
 @NgModule({

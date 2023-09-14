@@ -15,7 +15,7 @@ ion-footer {
 
 ion-button {
   margin: 10px 0;
-  color: #0A271F;
+  color: var(--ion-color-secondary-tint);
   font-size: 25px;
 
 }
@@ -25,7 +25,8 @@ ion-button {
   justify-content: space-between;
 
   ion-icon {
-    margin-right: 8px;
+    margin-right: 0px;
+    fill: #fff;
   }
 
   .button-text {

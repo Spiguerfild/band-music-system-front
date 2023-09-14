@@ -11,15 +11,20 @@ export class LoginPage implements OnInit {
   nome: string = '';
   senha: string = '';
 
-  constructor(router: Router) { }
+  constructor(private router: Router) { }
 
   verificaLogin() {
     if (this.nome === 'pastor' && this.senha === '123') {
+      this.router.navigate(['/leader-home'])
 
     }
   }
 
   onSubmit() {
+  }
+
+  backPage() {
+    this.router.navigate(['/'])
   }
   ngOnInit() {
   }
