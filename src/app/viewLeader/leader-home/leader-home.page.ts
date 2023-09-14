@@ -11,7 +11,9 @@ export class LeaderHomePage implements OnInit {
   constructor(private router: Router) { }
 
 
-
+  toEdit() {
+    this.router.navigate(['/edit-general'])
+  }
   backPage() {
     this.router.navigate(['/'])
   }

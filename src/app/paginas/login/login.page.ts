@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   constructor(private router: Router) { }
 
   verificaLogin() {
-    if (this.nome === 'pastor' && this.senha === '123') {
+    if (this.nome === '' && this.senha === '') {
       this.router.navigate(['/leader-home'])
 
     }

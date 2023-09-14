@@ -22,6 +22,18 @@ const routes: Routes = [
     path: 'leader-home',
     loadChildren: () => import('./viewLeader/leader-home/leader-home.module').then( m => m.LeaderHomePageModule)
   },
+  {
+    path: 'edit-general',
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-general/edit-general.module').then( m => m.EditGeneralPageModule)
+  },
+  {
+    path: 'edit-musica',
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-musica/edit-musica.module').then( m => m.EditMusicaPageModule)
+  },
+  {
+    path: 'edit-musico',
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-musico/edit-musico.module').then( m => m.EditMusicoPageModule)
+  },
 
 ];
 

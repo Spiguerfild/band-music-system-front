@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Musicas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item *ngFor="let musica of musicas">
+      <div>
+        <ion-label>{{musica.nome}}</ion-label>
+        <ion-label>{{musica.autor}}</ion-label>
+      </div>
+      <ion-icon slot="end" name="pencil"></ion-icon>
+      <ion-icon slot="end" name="trash-bin-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <div>
+    <ion-button expand="block" fill="solid" color="primary">confirmar</ion-button>
+    <ion-button expand="block" fill="outline" color="secondary">
+    </ion-button>
+  </div>
+</ion-content>
