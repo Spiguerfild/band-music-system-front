@@ -8,9 +8,14 @@ import { MusicaService } from 'src/app/services/domain/musica.service';
   styleUrls: ['./edit-musica.page.scss'],
 })
 export class EditMusicaPage implements OnInit {
+
   musicas!: MusicaDTO[];
+  isModalOpen = false;
   constructor(public musicaService: MusicaService) { }
 
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
   //findall().subscribe(res => {}, err => {})
   ionViewDidEnter() {
     this.musicaService.findAll()

@@ -13,6 +13,9 @@ export class EditGeneralPage implements OnInit {
   toMusicas() {
     this.router.navigate(['/edit-musica'])
   }
+  toMusicos() {
+    this.router.navigate(['/edit-musico'])
+  }
   ngOnInit() {
   }
 
