@@ -34,6 +34,14 @@ const routes: Routes = [
     path: 'edit-musico',
     loadChildren: () => import('./viewLeader/leaderEdits/edit-musico/edit-musico.module').then( m => m.EditMusicoPageModule)
   },
+  {
+    path: 'edit-instrumento',
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-instrumento/edit-instrumento.module').then( m => m.EditInstrumentoPageModule)
+  },
+  {
+    path: 'edit-banda',
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-banda/edit-banda.module').then( m => m.EditBandaPageModule)
+  },
 
 ];
 

@@ -10,11 +10,18 @@ export class EditGeneralPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  toBandas() {
+    this.router.navigate(['/edit-banda'])
+  }
   toMusicas() {
     this.router.navigate(['/edit-musica'])
   }
   toMusicos() {
     this.router.navigate(['/edit-musico'])
+  }
+
+  toInstrumentos() {
+    this.router.navigate(['/edit-instrumento'])
   }
   ngOnInit() {
   }
