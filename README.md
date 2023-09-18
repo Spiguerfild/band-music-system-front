@@ -1,4 +1,4 @@
-# Projeto Acadêmico - Organizador de Escalas de Bandas
+# Projeto - Organizador de Escalas de Bandas
 
 ## Visão Geral
 
