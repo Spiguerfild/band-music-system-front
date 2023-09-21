@@ -8,19 +8,18 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  nome: string = '';
-  senha: string = '';
+
 
   constructor(private router: Router) { }
 
   verificaLogin() {
-    if (this.nome === '' && this.senha === '') {
-      this.router.navigate(['/leader-home'])
 
-    }
+    this.router.navigate(['/leader-home'])
+
+
   }
 
-  onSubmit() {
+  submit() {
   }
 
   backPage() {

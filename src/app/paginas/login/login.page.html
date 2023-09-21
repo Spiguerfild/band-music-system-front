@@ -3,20 +3,15 @@
     <h1>Login</h1>
   </ion-text>
 
-  <div (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="submit()">
 
+    <ion-input type="text" label="Nome" labelPlacement="floating"></ion-input>
+    <ion-input type="password" label="Senha" labelPlacement="floating"></ion-input>
 
+    <ion-button (click)="verificaLogin()" type="submit" expand="block">Entrar</ion-button>
 
-    <ion-input type="text" fill="solid" label="Usuário" labelPlacement="floating" [(ngModel)]="nome"
-      helperText=""></ion-input>
+  </form>
 
-    <ion-input type="password" fill="solid" label="Senha" labelPlacement="floating" helperText=""
-      [(ngModel)]="senha"></ion-input>
-
-    <ion-button (click)="verificaLogin()" expand="block">Entrar</ion-button>
-
-  </div>
-
-  <ion-icon (click)="backPage()" color="secondary" class="back-btn" src="assets/back-btn.svg"></ion-icon>
+  <!-- <ion-icon (click)="backPage()" color="secondary" class="back-btn" src="assets/back-btn.svg"></ion-icon> -->
 
 </ion-content>
