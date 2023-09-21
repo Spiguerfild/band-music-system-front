@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastrar Banda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="bandaForm" submit()>
+
+    <ion-item lines="none">
+      <ion-input formControlName="nome" type="text" label="Nome da Banda" labelPlacement="floating"></ion-input>
+      <small class="error-message" *ngIf="associadoForm.get('nome')?.errors && form.submitted">
+        Informe o nome (5 a 50 caracteres)
+      </small>
+    </ion-item>
+
+  </form>
+</ion-content>

@@ -42,6 +42,14 @@ const routes: Routes = [
     path: 'edit-banda',
     loadChildren: () => import('./viewLeader/leaderEdits/edit-banda/edit-banda.module').then( m => m.EditBandaPageModule)
   },
+  {
+    path: 'register-banda',
+    loadChildren: () => import('./viewLeader/leaderRegisters/register-banda/register-banda.module').then( m => m.RegisterBandaPageModule)
+  },
+  {
+    path: 'register-general',
+    loadChildren: () => import('./viewLeader/leaderRegisters/register-general/register-general.module').then( m => m.RegisterGeneralPageModule)
+  },
 
 ];
 
