@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,8 +13,9 @@ import { EditBandaPage } from './edit-banda.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     EditBandaPageRoutingModule
   ],
   declarations: [EditBandaPage]
 })
-export class EditBandaPageModule {}
+export class EditBandaPageModule { }

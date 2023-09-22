@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-register-general',
   templateUrl: './register-general.page.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class RegisterGeneralPage implements OnInit {
 
   constructor(private router: Router) { }
-  toBandas() {
+  toBanda() {
     this.router.navigate(['/register-banda'])
   }
   // toMusicas() {

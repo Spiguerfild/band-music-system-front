@@ -5,14 +5,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="bandaForm" submit()>
+  <form #form="ngForm" [formGroup]="bandaForm" (ngSubmit)="submit()">
 
     <ion-item lines="none">
       <ion-input formControlName="nome" type="text" label="Nome da Banda" labelPlacement="floating"></ion-input>
-      <small class="error-message" *ngIf="associadoForm.get('nome')?.errors && form.submitted">
-        Informe o nome (5 a 50 caracteres)
+      <small class="error-message" *ngIf="bandaForm.get('nome')?.errors && form.submitted">
+        Informe o nome (2 a 20 caracteres)
       </small>
     </ion-item>
-
+    <ion-button expand="block" type="submit">
+      Registrar
+    </ion-button>
   </form>
 </ion-content>

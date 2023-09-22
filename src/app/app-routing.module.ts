@@ -18,37 +18,38 @@ const routes: Routes = [
   {
     path: 'view-home',
     loadChildren: () => import('./viewMusicist/view-home/view-home.module').then(m => m.ViewHomePageModule)
-  },  {
+  },
+  {
     path: 'leader-home',
-    loadChildren: () => import('./viewLeader/leader-home/leader-home.module').then( m => m.LeaderHomePageModule)
+    loadChildren: () => import('./viewLeader/leader-home/leader-home.module').then(m => m.LeaderHomePageModule)
   },
   {
     path: 'edit-general',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-general/edit-general.module').then( m => m.EditGeneralPageModule)
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-general/edit-general.module').then(m => m.EditGeneralPageModule)
   },
   {
     path: 'edit-musica',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-musica/edit-musica.module').then( m => m.EditMusicaPageModule)
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-musica/edit-musica.module').then(m => m.EditMusicaPageModule)
   },
   {
     path: 'edit-musico',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-musico/edit-musico.module').then( m => m.EditMusicoPageModule)
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-musico/edit-musico.module').then(m => m.EditMusicoPageModule)
   },
   {
     path: 'edit-instrumento',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-instrumento/edit-instrumento.module').then( m => m.EditInstrumentoPageModule)
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-instrumento/edit-instrumento.module').then(m => m.EditInstrumentoPageModule)
   },
   {
     path: 'edit-banda',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-banda/edit-banda.module').then( m => m.EditBandaPageModule)
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-banda/edit-banda.module').then(m => m.EditBandaPageModule)
   },
   {
     path: 'register-banda',
-    loadChildren: () => import('./viewLeader/leaderRegisters/register-banda/register-banda.module').then( m => m.RegisterBandaPageModule)
+    loadChildren: () => import('./viewLeader/leaderRegisters/register-banda/register-banda.module').then(m => m.RegisterBandaPageModule)
   },
   {
     path: 'register-general',
-    loadChildren: () => import('./viewLeader/leaderRegisters/register-general/register-general.module').then( m => m.RegisterGeneralPageModule)
+    loadChildren: () => import('./viewLeader/leaderRegisters/register-general/register-general.module').then(m => m.RegisterGeneralPageModule)
   },
 
 ];

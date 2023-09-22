@@ -17,4 +17,4 @@ import { ViewHomePage } from './view-home.page';
   ],
   declarations: [ViewHomePage]
 })
-export class ViewHomePageModule {}
+export class ViewHomePageModule { }
