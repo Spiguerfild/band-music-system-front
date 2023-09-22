@@ -38,7 +38,7 @@ export class EditBandaPage implements OnInit {
     }
     let antigoNome = this.bandas[index].nome
     this.errorsMessage = []; // edfine o array de erros como vazio
-    console.log(this.bandaForm.value);
+    console.log(this.bandas);
     this.bandaService.update(index + 1, this.bandaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Banda alterada',
@@ -52,7 +52,7 @@ export class EditBandaPage implements OnInit {
   }
 
   delete(index: number) {
-    this.bandaService.delete(index + 1)
+    this.bandaService.delete(this.bandas[index].id)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Banda deletada',
           `Banda ${this.bandas[index].nome} deletada com sucesso: `,
