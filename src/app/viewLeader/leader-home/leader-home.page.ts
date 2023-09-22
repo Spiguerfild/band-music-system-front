@@ -17,8 +17,8 @@ export class LeaderHomePage implements OnInit {
   toEdit() {
     this.router.navigate(['/edit-general'])
   }
-  backPage() {
-    this.router.navigate(['/'])
+  backPage(rota: string) {
+    this.router.navigate([`/${rota}`])
   }
   ngOnInit() {
   }

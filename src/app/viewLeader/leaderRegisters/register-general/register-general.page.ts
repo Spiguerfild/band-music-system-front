@@ -26,4 +26,8 @@ export class RegisterGeneralPage implements OnInit {
   ngOnInit() {
   }
 
+  backPage(rota: string) {
+    this.router.navigate([`/${rota}`])
+  }
+
 }

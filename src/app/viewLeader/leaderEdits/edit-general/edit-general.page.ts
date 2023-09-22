@@ -26,4 +26,8 @@ export class EditGeneralPage implements OnInit {
   ngOnInit() {
   }
 
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
+  }
+
 }
