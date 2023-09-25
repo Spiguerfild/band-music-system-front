@@ -12,6 +12,7 @@ export class EditInstrumentoPage implements OnInit {
   instrumentos!: InstrumentoDTO[];
 
   constructor(public instrumentoService: instrumentoService) { }
+
   ionViewDidEnter() {
     this.instrumentoService.findAll()
       .subscribe(response => {

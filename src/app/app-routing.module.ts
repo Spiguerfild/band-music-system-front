@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'register-general',
     loadChildren: () => import('./viewLeader/leaderRegisters/register-general/register-general.module').then(m => m.RegisterGeneralPageModule)
   },
+  {
+    path: 'edit-escala',
+    loadChildren: () => import('./viewLeader/leaderEdits/edit-escala/edit-escala.module').then( m => m.EditEscalaPageModule)
+  },
 
 ];
 

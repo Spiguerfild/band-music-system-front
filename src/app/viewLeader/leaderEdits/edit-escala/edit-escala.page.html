@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Escalas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor="let escala of escalas">
+    <ion-item>
+      <ion-text slot="start">
+        {{escala.banda.nome}}
+      </ion-text>
+
+      a
+
+      <ion-text slot="end">
+        {{escala.data[2]}}/{{escala.data[1]}}/{{escala.data[0]}}
+      </ion-text>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

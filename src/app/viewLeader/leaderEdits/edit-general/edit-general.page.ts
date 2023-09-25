@@ -10,6 +10,9 @@ export class EditGeneralPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  toEscalas() {
+    this.router.navigate(['/edit-escala'])
+  }
   toBandas() {
     this.router.navigate(['/edit-banda'])
   }

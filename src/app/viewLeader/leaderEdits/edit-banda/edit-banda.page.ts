@@ -63,12 +63,6 @@ export class EditBandaPage implements OnInit {
     this.isModalOpen = false;
   }
   // FUÇÕES CICLO DE VIDA --------------------------------------------------------------------------------------
-  ngOnInit() {
-    this.bandaForm = this.formBuilder.group({
-      nome: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(20)])]
-    })
-  }
-
   ionViewDidEnter() {
     this.bandaService.findAll()
       .subscribe(response => {
@@ -77,6 +71,12 @@ export class EditBandaPage implements OnInit {
       }, error => {
         console.log(error);
       });
+  }
+
+  ngOnInit() {
+    this.bandaForm = this.formBuilder.group({
+      nome: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(20)])]
+    })
   }
   //--------------------------------------------------------------------------------------
   async presentAlert(header: string, subHeader: string,

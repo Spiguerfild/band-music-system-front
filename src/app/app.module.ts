@@ -11,12 +11,14 @@ import { MusicaService } from './services/domain/musica.service';
 import { MusicoService } from './services/domain/musico.service';
 import { instrumentoService } from './services/domain/instrumento.service';
 import { bandaService } from './services/domain/banda.service';
+import { noiteDeApresentacaoService } from './services/domain/noiteDeApresentacao.service';
 
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, MusicaService, MusicoService, instrumentoService, bandaService],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    MusicaService, MusicoService, instrumentoService, bandaService, noiteDeApresentacaoService],
   bootstrap: [AppComponent],
 
 })
