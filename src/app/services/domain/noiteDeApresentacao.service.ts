@@ -14,4 +14,8 @@ export class noiteDeApresentacaoService {
   findAll(): Observable<NoiteDeApresentacaoDTO[]> {
     return this.http.get<NoiteDeApresentacaoDTO[]>(`${API_CONFIG.baseUrl}/noitesdeapresentacao`);
   }
+
+  update(id: number, escala: NoiteDeApresentacaoDTO) {
+    return this.http.put(`${API_CONFIG.baseUrl}/noitesdeapresentacao/${id}`, escala)
+  }
 }

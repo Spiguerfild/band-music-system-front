@@ -5,18 +5,56 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngFor="let escala of escalas">
+  <ion-list *ngFor="let escala of escalas; let i = index" lines="full">
     <ion-item>
       <ion-text slot="start">
         {{escala.banda.nome}}
       </ion-text>
-
-      a
-
       <ion-text slot="end">
         {{escala.data[2]}}/{{escala.data[1]}}/{{escala.data[0]}}
       </ion-text>
+      <ion-icon (click)="setOpen(true, i)" slot="end" color="#000" name="pencil"></ion-icon>
+
     </ion-item>
 
   </ion-list>
+
+
+  <!-- MODAL ----------------------------------------------- -->
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Editar Escala</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false,-1)">Cancelar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+
+        <form #form="ngForm" [formGroup]="escalaForm" (ngSubmit)="submit(selectedBandaIndex)">
+          <ion-list>
+            <ion-item>
+              <ion-select formControlName="banda" selected-text="" [placeholder]="selectedBandaName">
+                <ion-select-option *ngFor="let banda of bandas">{{banda.nome}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <ion-button expand="block" type="submit">
+            Alterar
+          </ion-button>
+        </form>
+      </ion-content>
+
+      <!-- <ion-footer>
+        <ion-button class="del-btn" color="danger" (click)="delete(selectedBandaIndex)" expand="block">
+          Deletar Banda
+        </ion-button>
+      </ion-footer> -->
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
