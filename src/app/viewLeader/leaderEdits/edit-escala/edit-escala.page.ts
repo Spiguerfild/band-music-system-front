@@ -38,18 +38,17 @@ export class EditEscalaPage implements OnInit {
   }
 
   submit(index: number) {
-    let antigoNome = this.escalas[index].banda.nome;
-    console.log('Nome-----', antigoNome)
+
     if (this.escalaForm.invalid || this.escalaForm.pending) {
       return;
     }
     this.errorsMessage = []; // edfine o array de erros como vazio
-    console.log(this.escalaForm)
+
     this.noiteDeApresentacaoService.update(index + 1, this.escalaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Banda alterada',
-          `De: ${antigoNome} 
-          Para:${this.escalaForm.value.nomeBanda}`,
+          `De: oi 
+          Para:${this.escalaForm.value}`,
           ['Ok']);
         this.router.navigate(['/edit-general']);
       })
@@ -78,7 +77,9 @@ export class EditEscalaPage implements OnInit {
 
   ngOnInit() {
     this.escalaForm = this.formBuilder.group({
-      banda: [Validators.compose([Validators.required])]
+      banda: [Validators.compose([Validators.required])],
+      // data: [Validators.compose([Validators.required])],
+
     })
   }
   //--------------------------------------------------------------------------------------

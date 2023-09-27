@@ -13,7 +13,7 @@
       <ion-text slot="end">
         {{escala.data[2]}}/{{escala.data[1]}}/{{escala.data[0]}}
       </ion-text>
-      <ion-icon (click)="setOpen(true, i)" slot="end" color="#000" name="pencil"></ion-icon>
+      <ion-icon (click)="setOpen(true, i); selectedBandaIndex = i" slot="end" color="#000" name="pencil"></ion-icon>
 
     </ion-item>
 
@@ -38,13 +38,13 @@
         <form #form="ngForm" [formGroup]="escalaForm" (ngSubmit)="submit(selectedBandaIndex)">
           <ion-list>
             <ion-item>
-              <ion-select formControlName="banda" selected-text="" [placeholder]="selectedBandaName">
+              <ion-select formControlName="banda" [placeholder]="selectedBandaName">
                 <ion-select-option *ngFor="let banda of bandas">{{banda.nome}}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
           <ion-button expand="block" type="submit">
-            Alterar
+            Alterara
           </ion-button>
         </form>
       </ion-content>
