@@ -13,20 +13,22 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
 })
 export class EditEscalaPage implements OnInit {
 
-  escalas!: NoiteDeApresentacaoDTO[];
+  noites!: NoiteDeApresentacaoDTO[];
   bandas!: BandaDTO[];
-  selectedBandaIndex!: number;
+  noiteId!: number;
+  selectedBandaId: number | null = null;
   selectedBandaDTO!: BandaDTO;
-  newNoiteDTO!: NoiteDeApresentacaoDTO;
   isModalOpen = false;
   selectChange = false;
+  dateValue!: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private noiteDeApresentacaoService: noiteDeApresentacaoService,
     private bandaService: bandaService,
     private alertController: AlertController,
     private router: Router,
-    private route: ActivatedRoute
+    // private route: ActivatedRoute
   ) { }
 
   /*Agrupa um formulário para estabelecer dominio e um conjunto de regras dentro desse dominio*/
@@ -39,23 +41,34 @@ export class EditEscalaPage implements OnInit {
   setOpen(isOpen: boolean, i: number) {
     this.isModalOpen = isOpen;
     if (isOpen === true) {
-      this.selectedBandaDTO = this.bandas[i];
-      console.log('index ---->', i, 'banda--->', this.bandas[i])
+      this.noiteId = i
+      console.log('noite ID-->', this.noiteId)
+      this.selectedBandaDTO = this.noites[this.noiteId - 1].banda;
+
+
+      // this.selectedBandaId = this.selectedBandaDTO.id;
+      // console.log('selectedBandaID-->', this.selectedBandaId)
+
     }
   }
+
+  // ionDateChange(date: string) {
+  //   this.dateValue = date;
+  //   console.log(this.dateValue)
+  // }
   ionSelectChange() { /*se o select mudar ele muda o botão para ativar a alteração*/
     this.selectChange = true;
   }
 
-  submit(index: number) {
+  submit(noiteId: number) {
 
     // if (this.escalaForm.invalid || this.escalaForm.pending) {
     //   return;
     // }
 
     this.errorsMessage = []; // edfine o array de erros como vazio
-    console.log(this.escalaForm.value)
-    this.noiteDeApresentacaoService.update(index + 1, this.escalaForm.value)
+    console.log('escalaform-->', this.escalaForm.value)
+    this.noiteDeApresentacaoService.update(noiteId, this.escalaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Banda alterada',
           `De:  ${this.selectedBandaDTO.nome}
@@ -70,7 +83,7 @@ export class EditEscalaPage implements OnInit {
   ionViewDidEnter() {
     this.noiteDeApresentacaoService.findAll()
       .subscribe(response => {
-        this.escalas = response;
+        this.noites = response;
         console.log(response);
       }, error => {
         console.log(error);
@@ -90,9 +103,7 @@ export class EditEscalaPage implements OnInit {
 
     this.escalaForm = this.formBuilder.group({
       banda: [Validators.compose([Validators.required])],
-
-
-      // data: [Validators.compose([Validators.required])],
+      data: [Validators.compose([Validators.required])],
     })
   }
   //--------------------------------------------------------------------------------------

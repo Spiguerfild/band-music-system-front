@@ -5,15 +5,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngFor="let escala of escalas; let i = index" lines="full">
+  <ion-list *ngFor="let noite of noites" lines="full">
     <ion-item>
       <ion-text slot="start">
-        {{escala.banda.nome}}
+        {{noite.banda.nome}}
       </ion-text>
       <ion-text slot="end">
-        {{escala.data[2]}}/{{escala.data[1]}}/{{escala.data[0]}}
+        {{noite.data[2]}}/{{noite.data[1]}}/{{noite.data[0]}}
       </ion-text>
-      <ion-icon (click)="setOpen(true, i); selectedBandaIndex = i" slot="end" color="#000" name="pencil"></ion-icon>
+      <ion-icon (click)="setOpen(true, noite.id)" slot="end" color="#000" name="pencil"></ion-icon>
 
     </ion-item>
 
@@ -35,7 +35,7 @@
 
       <ion-content class="ion-padding">
 
-        <form #form="ngForm" [formGroup]="escalaForm" (ngSubmit)="submit(selectedBandaIndex)">
+        <form #form="ngForm" [formGroup]="escalaForm" (ngSubmit)="submit(noiteId)">
           <ion-list>
             <ion-item>
               <ion-select formControlName="banda" (ionChange)="ionSelectChange()" [placeholder]="selectedBandaDTO.nome">
@@ -43,6 +43,8 @@
               </ion-select>
             </ion-item>
           </ion-list>
+
+          <ion-datetime formControlName="data"></ion-datetime>
           <ion-button [disabled]="!selectChange" expand="block" type="submit">
             Alterara
           </ion-button>
