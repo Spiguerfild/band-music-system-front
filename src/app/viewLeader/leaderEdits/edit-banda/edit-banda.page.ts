@@ -38,7 +38,7 @@ export class EditBandaPage implements OnInit {
     }
     let antigoNome = this.bandas[index].nome
     this.errorsMessage = []; // edfine o array de erros como vazio
-    console.log(this.bandas);
+    console.log(this.bandaForm.value);
     this.bandaService.update(index + 1, this.bandaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Banda alterada',

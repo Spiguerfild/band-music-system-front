@@ -20,22 +20,16 @@ export class LoginPage implements OnInit {
 
 
   verificaLogin(position: 'top' | 'middle' | 'bottom') {
-
-
     this.router.navigate(['/leader-home'])
-
-
-
-
   }
 
   submit() {
   }
 
-  backPage() {
-    this.router.navigate(['/'])
-  }
+
   ngOnInit() {
   }
-
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
+  }
 }

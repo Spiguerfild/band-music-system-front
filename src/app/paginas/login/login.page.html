@@ -3,6 +3,7 @@
     <h1>Login</h1>
   </ion-text>
 
+
   <form (ngSubmit)="submit()">
 
     <ion-input type="text" label="Nome" labelPlacement="floating"></ion-input>
@@ -12,7 +13,7 @@
 
   </form>
 
-
-
-
-</ion-content>
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon button (click)="backPage('home')" class="back-btn" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
