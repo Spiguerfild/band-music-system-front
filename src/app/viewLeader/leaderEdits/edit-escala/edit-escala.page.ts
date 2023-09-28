@@ -58,8 +58,8 @@ export class EditEscalaPage implements OnInit {
     this.noiteDeApresentacaoService.update(index + 1, this.escalaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Banda alterada',
-          `De: oi 
-          Para:${this.escalaForm.value}`,
+          `De:  ${this.selectedBandaDTO.nome}
+          Para:${this.escalaForm.value.banda.nome}`,
           ['Ok']);
         this.router.navigate(['/edit-general']);
       })
