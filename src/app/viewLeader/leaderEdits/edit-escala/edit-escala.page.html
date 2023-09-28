@@ -39,7 +39,7 @@
           <ion-list>
             <ion-item>
               <ion-select formControlName="banda" (ionChange)="ionSelectChange()" [placeholder]="selectedBandaDTO.nome">
-                <ion-select-option [value]="banda" *ngFor="let banda of bandas; ">{{banda.nome}}</ion-select-option>
+                <ion-select-option [value]="banda" *ngFor="let banda of bandas">{{banda.nome}}</ion-select-option>
               </ion-select>
             </ion-item>
           </ion-list>
