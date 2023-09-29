@@ -38,33 +38,44 @@ export class EditEscalaPage implements OnInit {
   errorsMessage!: string[];
 
   /*Para acertar o id da banda coloque index +1 */
-  setOpen(isOpen: boolean, i: number) {
+  setOpen(isOpen: boolean, id: number) {
     this.isModalOpen = isOpen;
     if (isOpen === true) {
-      this.noiteId = i
+      this.noiteId = id
       console.log('noite ID-->', this.noiteId)
       this.selectedBandaDTO = this.noites[this.noiteId - 1].banda;
 
 
       // this.selectedBandaId = this.selectedBandaDTO.id;
       // console.log('selectedBandaID-->', this.selectedBandaId)
-
+      this.noiteDeApresentacaoService.findById(id).subscribe(response => {
+        this.escalaForm = this.formBuilder.group({
+          id: [response.id, Validators.required],
+          banda: [response.banda.nome, Validators.required],
+          data: [response.data, Validators.required],
+        })
+        console.log('resps==', response)
+      })
+      // this.escalaForm = this.formBuilder.group({
+      //   banda: ['', Validators.compose([Validators.required])],
+      //   data: ['', Validators.compose([Validators.required])],
+      // })
+      this.selectChange = false;
     }
   }
 
-  // ionDateChange(date: string) {
-  //   this.dateValue = date;
-  //   console.log(this.dateValue)
-  // }
+  ionDateChange() {
+    this.selectChange = true;
+  }
   ionSelectChange() { /*se o select mudar ele muda o botão para ativar a alteração*/
     this.selectChange = true;
   }
 
   submit(noiteId: number) {
 
-    // if (this.escalaForm.invalid || this.escalaForm.pending) {
-    //   return;
-    // }
+    if (this.escalaForm.invalid || this.escalaForm.pending) {
+      return;
+    }
 
     this.errorsMessage = []; // edfine o array de erros como vazio
     console.log('escalaform-->', this.escalaForm.value)
@@ -102,8 +113,8 @@ export class EditEscalaPage implements OnInit {
   ngOnInit() {
 
     this.escalaForm = this.formBuilder.group({
-      banda: [Validators.compose([Validators.required])],
-      data: [Validators.compose([Validators.required])],
+      banda: ['', Validators.compose([Validators.required])],
+      data: ['', Validators.compose([Validators.required])],
     })
   }
   //--------------------------------------------------------------------------------------
