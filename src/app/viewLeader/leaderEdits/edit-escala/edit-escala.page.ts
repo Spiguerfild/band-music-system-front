@@ -13,14 +13,14 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
 })
 export class EditEscalaPage implements OnInit {
 
-  noites!: NoiteDeApresentacaoDTO[];
-  bandas!: BandaDTO[];
-  noiteId!: number;
-  selectedBandaId: number | null = null;
-  selectedBandaDTO!: BandaDTO;
-  isModalOpen = false;
-  selectChange = false;
-  dateValue!: string;
+  noites!: NoiteDeApresentacaoDTO[]; // array de todas as escalas
+  bandas!: BandaDTO[]; // array de todas as bandas
+  noiteId!: number; // variavel para pegar o id da noite de apresentação (escala selecionada)
+  // selectedBandaId: number | null = null; // id da banda selecionada
+  selectedBandaDTO!: BandaDTO; // objeto da banda selecionada
+  isModalOpen = false; // variavel de controle do modal
+  selectChange = false; // variavel de controle do select
+  dateValue!: string; // valor da data 
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,25 +41,22 @@ export class EditEscalaPage implements OnInit {
   setOpen(isOpen: boolean, id: number) {
     this.isModalOpen = isOpen;
     if (isOpen === true) {
-      this.noiteId = id
+      this.noiteId = id // pega a noite especifica
       console.log('noite ID-->', this.noiteId)
       this.selectedBandaDTO = this.noites[this.noiteId - 1].banda;
 
 
-      // this.selectedBandaId = this.selectedBandaDTO.id;
-      // console.log('selectedBandaID-->', this.selectedBandaId)
       this.noiteDeApresentacaoService.findById(id).subscribe(response => {
         this.escalaForm = this.formBuilder.group({
           id: [response.id, Validators.required],
-          banda: [response.banda.nome, Validators.required],
+          banda: [response.banda, Validators.required],
           data: [response.data, Validators.required],
         })
         console.log('resps==', response)
+
+
       })
-      // this.escalaForm = this.formBuilder.group({
-      //   banda: ['', Validators.compose([Validators.required])],
-      //   data: ['', Validators.compose([Validators.required])],
-      // })
+
       this.selectChange = false;
     }
   }
