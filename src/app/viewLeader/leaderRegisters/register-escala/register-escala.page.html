@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Escalas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #form="ngForm" [formGroup]="escalaForm" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="banda" (ionChange)="ionSelectChange()">
+          <ion-select-option [value]="banda" *ngFor="let banda of bandas">{{banda.nome}}</ion-select-option>
+        </ion-select>
+        <small class="error-message" *ngIf="escalaForm.get('banda')?.errors && form.submitted">
+          Sem alteração, sem poder de envio
+        </small>
+      </ion-item>
+    </ion-list>
+    <ion-datetime formControlName="data"></ion-datetime>
+    <!-- <ion-datetime (ionChange)="ionDateChange()" formControlName="data"></ion-datetime> -->
+    <ion-button [disabled]="!dateChange && !selectChange" expand="block" type="submit">
+      Cadastrar
+    </ion-button>
+  </form>
+
+</ion-content>
+<!-- <ion-footer>
+      <ion-button class="del-btn" color="danger" (click)="delete(selectedBandaIndex)" expand="block">
+        Deletar Banda
+      </ion-button>
+    </ion-footer> -->

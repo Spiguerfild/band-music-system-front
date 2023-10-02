@@ -10,8 +10,11 @@ import { Router } from '@angular/router';
 export class RegisterGeneralPage implements OnInit {
 
   constructor(private router: Router) { }
-  toBanda() {
+  toBandas() {
     this.router.navigate(['/register-banda'])
+  }
+  toEscalas() {
+    this.router.navigate(['/register-escala'])
   }
   // toMusicas() {
   //   this.router.navigate(['/register-musica'])

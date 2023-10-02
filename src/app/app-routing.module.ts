@@ -54,7 +54,11 @@ const routes: Routes = [
   {
     path: 'edit-escala',
     loadChildren: () => import('./viewLeader/leaderEdits/edit-escala/edit-escala.module').then( m => m.EditEscalaPageModule)
+  },  {
+    path: 'register-escala',
+    loadChildren: () => import('./viewLeader/leaderRegisters/register-escala/register-escala.module').then( m => m.RegisterEscalaPageModule)
   },
+
 
 ];
 
