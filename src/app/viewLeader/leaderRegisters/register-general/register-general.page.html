@@ -18,6 +18,11 @@
       class="custom-button">Instrumento</ion-button> -->
   </div>
 
-  <ion-icon button (click)="backPage('leader-home')" class="back-btn" src="assets/back-btn.svg"></ion-icon>
+
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" (click)="backPage('leader-home')" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

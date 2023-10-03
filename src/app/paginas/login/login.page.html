@@ -6,7 +6,9 @@
 
   <form (ngSubmit)="submit()">
 
+
     <ion-input type="text" label="Nome" labelPlacement="floating"></ion-input>
+
     <ion-input type="password" label="Senha" labelPlacement="floating"></ion-input>
 
     <ion-button (click)="verificaLogin('bottom')" expand="block">Entrar</ion-button>
@@ -15,5 +17,6 @@
 
   <ion-fab slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
-      <ion-icon button (click)="backPage('home')" class="back-btn" src="assets/back-btn.svg"></ion-icon>
+      <ion-icon size="large" (click)="backPage('home')" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
+  </ion-fab>

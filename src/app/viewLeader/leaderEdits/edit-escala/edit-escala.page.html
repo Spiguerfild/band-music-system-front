@@ -38,7 +38,11 @@
         <form #form="ngForm" [formGroup]="escalaForm" (ngSubmit)="submit(noiteId)">
           <ion-list>
             <ion-item>
-              <ion-select formControlName="banda" (ionChange)="ionSelectChange()">
+
+              <ion-select [value]=" bandas[selectedBandaDTO.id - 1]" (ionChange)="ionSelectChange()">
+
+                <!-- <ion-select [value]="bandas[noites[noiteId].banda.id]" (ionChange)="ionSelectChange()"> -->
+
                 <ion-select-option [value]="banda" *ngFor="let banda of bandas">{{banda.nome}}</ion-select-option>
               </ion-select>
               <small class="error-message" *ngIf="escalaForm.get('banda')?.errors && form.submitted">
@@ -46,7 +50,7 @@
               </small>
             </ion-item>
           </ion-list>
-          <ion-datetime formControlName="data"></ion-datetime>
+          <!-- <ion-datetime formControlName="data"></ion-datetime> -->
           <!-- <ion-datetime (ionChange)="ionDateChange()" formControlName="data"></ion-datetime> -->
           <ion-button [disabled]="!selectChange" expand="block" type="submit">
             Alterar

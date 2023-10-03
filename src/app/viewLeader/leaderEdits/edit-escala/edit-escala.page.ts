@@ -45,12 +45,13 @@ export class EditEscalaPage implements OnInit {
       console.log('noite ID-->', this.noiteId)
       this.selectedBandaDTO = this.noites[this.noiteId - 1].banda;
 
-
+      // console.log('papapappaa', this.noites[this.noiteId].banda.id - 1)
+      console.log('valorinterno', this.bandas[this.selectedBandaDTO.id - 1])
       this.noiteDeApresentacaoService.findById(id).subscribe(response => {
         this.escalaForm = this.formBuilder.group({
           id: [response.id, Validators.required],
           banda: [response.banda, Validators.required],
-          data: [response.data, Validators.required],
+          // data: [response.data, Validators.required],
         })
         console.log('resps==', response)
 
@@ -111,7 +112,7 @@ export class EditEscalaPage implements OnInit {
 
     this.escalaForm = this.formBuilder.group({
       banda: ['', Validators.compose([Validators.required])],
-      data: ['', Validators.compose([Validators.required])],
+      // data: ['', Validators.compose([Validators.required])],
     })
   }
   //--------------------------------------------------------------------------------------

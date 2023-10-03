@@ -12,8 +12,8 @@ export class ViewHomePage implements OnInit {
   realizarAcao() {
 
   }
-  backPage() {
-    this.router.navigate(['/'])
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
   }
   ngOnInit() {
   }
