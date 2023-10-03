@@ -18,7 +18,7 @@
     </ion-list>
     <ion-datetime formControlName="data"></ion-datetime>
     <!-- <ion-datetime (ionChange)="ionDateChange()" formControlName="data"></ion-datetime> -->
-    <ion-button [disabled]="!dateChange && !selectChange" expand="block" type="submit">
+    <ion-button [disabled]="!escalaForm.valid" expand="block" type="submit">
       Cadastrar
     </ion-button>
   </form>

@@ -60,7 +60,7 @@ export class RegisterEscalaPage implements OnInit {
         this.presentAlert('Sucesso', 'Banda criada',
           `Banda:${this.escalaForm.value.banda.nome} criada com sucesso`,
           ['Ok']);
-        this.router.navigate(['/edit-general']);
+        this.router.navigate(['/register-general']);
       })
 
     this.isModalOpen = false;
@@ -83,7 +83,7 @@ export class RegisterEscalaPage implements OnInit {
 
     this.escalaForm = this.formBuilder.group({
       banda: ['', Validators.compose([Validators.required])],
-      data: [Validators.compose([Validators.required])],
+      data: ['', Validators.compose([Validators.required])],
     })
   }
   //--------------------------------------------------------------------------------------
