@@ -51,7 +51,7 @@
             </ion-item>
           </ion-list>
           <!-- <ion-datetime formControlName="data"></ion-datetime> -->
-          <!-- <ion-datetime (ionChange)="ionDateChange()" formControlName="data"></ion-datetime> -->
+          <ion-datetime [value]="dateValue" (ionChange)="ionDateChange()" formControlName="data"></ion-datetime>
           <ion-button [disabled]="!selectChange" expand="block" type="submit">
             Alterar
           </ion-button>
