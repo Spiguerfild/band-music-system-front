@@ -47,10 +47,13 @@ export class EditEscalaPage implements OnInit {
       this.noiteId = id;
       this.selectedBandaDTO = this.noites[this.noiteId - 1].banda;
 
+
       this.noiteDeApresentacaoService.findById(id).subscribe(response => {
 
         console.log(response.data)
+
         this.escalaForm = this.formBuilder.group({
+
           id: [response.id, Validators.required],
           banda: [response.banda, Validators.required],
           data: [this.formatarData(response.data), [Validators.required]],
@@ -67,8 +70,13 @@ export class EditEscalaPage implements OnInit {
   }
 
 
-  ionSelectChange() {
+  ionSelectChange(e: any) {
     this.selectChange = true;
+    console.log('antes=',this.selectedBandaDTO)
+    this.selectedBandaDTO = e.detail.value
+ console.log('depois=',this.selectedBandaDTO)
+ 
+
   }
 
 
@@ -79,6 +87,7 @@ export class EditEscalaPage implements OnInit {
 
     this.errorsMessage = [];
 
+    console.log('Escala form----value------->',this.escalaForm.value)
     this.noiteDeApresentacaoService.update(noiteId, this.escalaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Escala alterada',
