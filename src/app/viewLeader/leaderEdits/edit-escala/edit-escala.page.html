@@ -5,19 +5,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngFor="let noite of noites" lines="full">
-    <ion-item>
-      <ion-text slot="start">
-        {{noite.banda.nome}}
-      </ion-text>
-      <ion-text slot="end">
-        {{noite.data[2]}}/{{noite.data[1]}}/{{noite.data[0]}}
-      </ion-text>
-      <ion-icon (click)="setOpen(true, noite.id)" slot="end" color="#000" name="pencil"></ion-icon>
 
-    </ion-item>
+  <div class="custom-div">
 
-  </ion-list>
+
+
+
+    <ion-list *ngFor="let noite of noites" lines="full">
+      <ion-item>
+        <ion-text slot="start">
+          {{noite.banda.nome}}
+        </ion-text>
+        <ion-text slot="end">
+          {{noite.data[2]}}/{{noite.data[1]}}/{{noite.data[0]}}
+        </ion-text>
+        <ion-icon (click)="setOpen(true, noite.id)" slot="end" size="large" color="#000" name="pencil"></ion-icon>
+
+      </ion-item>
+
+    </ion-list>
+  </div>
+
 
 
   <!-- MODAL ----------------------------------------------- -->
@@ -41,7 +49,7 @@
             <ion-item>
 
               <!-- <ion-select [value]="bandas[selectedBandaDTO.id - 1]" (ionChange)="ionSelectChange(value)"> -->
-              <ion-select [value]="bandas[selectedBandaDTO.id - 1]"  (ionChange)="ionSelectChange($event)">
+              <ion-select [value]="bandas[selectedBandaDTO.id - 1]" (ionChange)="ionSelectChange($event)">
 
                 <!-- <ion-select [value]="bandas[noites[noiteId].banda.id]" (ionChange)="ionSelectChange()"> -->
 
@@ -62,7 +70,7 @@
           </ion-button>
         </form>
       </ion-content>
-     
+
 
       <!-- <ion-footer>
         <ion-button class="del-btn" color="danger" (click)="delete(selectedBandaIndex)" expand="block">

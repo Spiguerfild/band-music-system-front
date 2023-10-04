@@ -75,7 +75,7 @@ export class EditBandaPage implements OnInit {
 
   ngOnInit() {
     this.bandaForm = this.formBuilder.group({
-      nome: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(20)])]
+      nome: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)])]
     })
   }
   //--------------------------------------------------------------------------------------
