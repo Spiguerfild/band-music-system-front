@@ -41,7 +41,13 @@ export class RegisterEscalaPage implements OnInit {
 
 
   ionDateChange() {
-    this.dateChange = true;
+    if(this.escalaForm.valid) {
+      this.dateChange = true;
+      console.log('VALID')
+    }else{
+      console.log('not valid')
+    }
+    
   }
   ionSelectChange() { /*se o select mudar ele muda o botão para ativar a alteração*/
     this.selectChange = true;
@@ -64,6 +70,7 @@ export class RegisterEscalaPage implements OnInit {
       })
 
     this.isModalOpen = false;
+  
   }
   //------------------------------------------------------------------------
   ionViewDidEnter() {
@@ -76,14 +83,13 @@ export class RegisterEscalaPage implements OnInit {
       }, error => {
         console.log(error);
       });
-
   }
 
   ngOnInit() {
 
     this.escalaForm = this.formBuilder.group({
       banda: ['', Validators.compose([Validators.required])],
-      data: ['', Validators.compose([Validators.required])],
+      data: [], // retirei aqui pois ele inicia na data de hoje quando os validadores não estão presente
     })
   }
   //--------------------------------------------------------------------------------------

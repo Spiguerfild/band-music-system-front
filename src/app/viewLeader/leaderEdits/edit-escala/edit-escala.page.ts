@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { BandaDTO } from 'src/app/models/BandaDTO';
 import { NoiteDeApresentacaoDTO } from 'src/app/models/NoiteDeApresentacaoDTO';
@@ -24,7 +25,8 @@ export class EditEscalaPage implements OnInit {
     private formBuilder: FormBuilder,
     private noiteDeApresentacaoService: noiteDeApresentacaoService,
     private bandaService: bandaService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ) { }
 
   escalaForm!: FormGroup;
@@ -33,9 +35,10 @@ export class EditEscalaPage implements OnInit {
   ngOnInit() {
     this.escalaForm = this.formBuilder.group({
       banda: ['', Validators.compose([Validators.required])],
-      data: ['', Validators.compose([Validators.required])],
+      data: [ Validators.compose([Validators.required])],
     });
   }
+
 
   setOpen(isOpen: boolean, id: number) {
     this.isModalOpen = isOpen;
@@ -58,13 +61,16 @@ export class EditEscalaPage implements OnInit {
     }
   }
 
+
   ionDateChange() {
     this.selectChange = true;
   }
 
+
   ionSelectChange() {
     this.selectChange = true;
   }
+
 
   submit(noiteId: number) {
     if (this.escalaForm.invalid || this.escalaForm.pending) {
@@ -75,14 +81,14 @@ export class EditEscalaPage implements OnInit {
 
     this.noiteDeApresentacaoService.update(noiteId, this.escalaForm.value)
       .subscribe(response => {
-        this.presentAlert('Sucesso', 'Banda alterada',
-          `De:  ${this.selectedBandaDTO.nome}
-          Para:${this.escalaForm.value.banda.nome}`,
+        this.presentAlert('Sucesso', 'Escala alterada',
+          `Escala alterada com sucesso`,
           ['Ok']);
+          this.router.navigate(['/edit-general']);
       });
+      this.isModalOpen = false;
+    }
 
-    this.isModalOpen = false;
-  }
 
   ionViewDidEnter() {
     this.noiteDeApresentacaoService.findAll()
@@ -100,6 +106,7 @@ export class EditEscalaPage implements OnInit {
       });
   }
 
+
   async presentAlert(header: string, subHeader: string,
     message: string, buttons: string[]) {
     const alert = await this.alertController.create({
@@ -110,6 +117,7 @@ export class EditEscalaPage implements OnInit {
     });
     await alert.present();
   }
+
 
   formatarData(arrayData: number[]): string {
     // Extrai os elementos do array
@@ -128,7 +136,9 @@ export class EditEscalaPage implements OnInit {
 
 
 
-
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
+  }
 
 
 }
