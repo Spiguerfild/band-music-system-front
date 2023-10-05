@@ -34,8 +34,9 @@ export class EditEscalaPage implements OnInit {
 
   ngOnInit() {
     this.escalaForm = this.formBuilder.group({
-      banda: ['', Validators.compose([Validators.required])],
-      data: [ Validators.compose([Validators.required])],
+      // banda: ['', Validators.compose([Validators.required])],
+      banda: [Validators.compose([Validators.required])],
+      data: [Validators.compose([Validators.required])],
     });
   }
 
@@ -47,16 +48,15 @@ export class EditEscalaPage implements OnInit {
       this.noiteId = id;
       this.selectedBandaDTO = this.noites[this.noiteId - 1].banda;
 
-
       this.noiteDeApresentacaoService.findById(id).subscribe(response => {
 
-        console.log(response.data)
+        console.log('response data', response.data)
 
         this.escalaForm = this.formBuilder.group({
-
-          id: [response.id, Validators.required],
-          banda: [response.banda, Validators.required],
-          data: [this.formatarData(response.data), [Validators.required]],
+          // id: [response.id, Validators.required],
+          // banda: [response.banda, Validators.required],
+          banda: [this.bandas[this.selectedBandaDTO.id - 1], Validators.required],
+          data: [this.formatarData(response.data), Validators.required],
         });
 
         this.selectChange = false;
@@ -72,10 +72,10 @@ export class EditEscalaPage implements OnInit {
 
   ionSelectChange(e: any) {
     this.selectChange = true;
-    console.log('antes=',this.selectedBandaDTO)
+    console.log('antes=', this.selectedBandaDTO)
     this.selectedBandaDTO = e.detail.value
- console.log('depois=',this.selectedBandaDTO)
- 
+    console.log('depois=', this.selectedBandaDTO)
+
 
   }
 
@@ -87,16 +87,16 @@ export class EditEscalaPage implements OnInit {
 
     this.errorsMessage = [];
 
-    console.log('Escala form----value------->',this.escalaForm.value)
+    console.log('Escala form----value------->', this.escalaForm.value)
     this.noiteDeApresentacaoService.update(noiteId, this.escalaForm.value)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Escala alterada',
           `Escala alterada com sucesso`,
           ['Ok']);
-          this.router.navigate(['/edit-general']);
+        this.router.navigate(['/edit-general']);
       });
-      this.isModalOpen = false;
-    }
+    this.isModalOpen = false;
+  }
 
 
   ionViewDidEnter() {

@@ -49,7 +49,8 @@
             <ion-item>
 
               <!-- <ion-select [value]="bandas[selectedBandaDTO.id - 1]" (ionChange)="ionSelectChange(value)"> -->
-              <ion-select [value]="bandas[selectedBandaDTO.id - 1]" (ionChange)="ionSelectChange($event)">
+              <ion-select [value]="bandas[selectedBandaDTO.id - 1]" formControlName="banda"
+                (ionChange)="ionSelectChange($event)">
 
                 <!-- <ion-select [value]="bandas[noites[noiteId].banda.id]" (ionChange)="ionSelectChange()"> -->
 
