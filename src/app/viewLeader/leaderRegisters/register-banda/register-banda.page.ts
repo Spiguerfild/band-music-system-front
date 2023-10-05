@@ -53,7 +53,7 @@ export class RegisterBandaPage implements OnInit {
     this.router.navigate(['/register-general'])
   }
 
-  backPage(rota: string) {
+  backPage(rota: string) { // função que volta pra uma pagina especifica
     this.router.navigate([`/${rota}`])
   }
 }

@@ -53,7 +53,7 @@ export class EditEscalaPage implements OnInit {
         console.log('response data', response.data)
 
         this.escalaForm = this.formBuilder.group({
-          // id: [response.id, Validators.required],
+          id: [response.id, Validators.required],
           // banda: [response.banda, Validators.required],
           banda: [this.bandas[this.selectedBandaDTO.id - 1], Validators.required],
           data: [this.formatarData(response.data), Validators.required],
