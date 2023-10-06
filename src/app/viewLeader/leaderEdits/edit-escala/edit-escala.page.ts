@@ -41,6 +41,7 @@ export class EditEscalaPage implements OnInit {
   }
 
 
+
   setOpen(isOpen: boolean, id: number) {
     this.isModalOpen = isOpen;
 
