@@ -31,8 +31,8 @@
         <form #form="ngForm" [formGroup]="bandaForm" (ngSubmit)="submit(selectedBandaIndex)">
 
           <ion-item lines="none">
-            <ion-input formControlName="nome" type="text" label="Mudar nome da Banda"
-              labelPlacement="floating"></ion-input>
+            <ion-input formControlName="nome" type="text" [placeholder]="bandas[selectedBandaIndex].nome"
+              label="Mudar nome da Banda" labelPlacement="floating"></ion-input>
             <small class="error-message" *ngIf="bandaForm.get('nome')?.errors && form.submitted">
               Informe o nome (2 a 15 caracteres)
             </small>

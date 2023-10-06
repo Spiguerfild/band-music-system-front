@@ -41,7 +41,7 @@ export class EditEscalaPage implements OnInit {
   }
 
 
-
+  // certeza que quando eu selecionar uma nova data e abrir o set open denovo ele da erro do month
   setOpen(isOpen: boolean, id: number) {
     this.isModalOpen = isOpen;
 

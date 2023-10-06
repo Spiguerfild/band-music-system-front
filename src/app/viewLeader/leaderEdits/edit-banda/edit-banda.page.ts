@@ -23,6 +23,7 @@ export class EditBandaPage implements OnInit {
 
   // pega o elemento do form pelo id
   selectedBandaIndex!: number;
+
   constructor(private formBuilder: FormBuilder,
     private alertController: AlertController,
     private bandaService: bandaService,
@@ -30,6 +31,12 @@ export class EditBandaPage implements OnInit {
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+    if (isOpen === true) {
+      console.log(this.bandas[this.selectedBandaIndex])
+      this.bandaForm = this.formBuilder.group({
+        nome: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)])]
+      })
+    }
   }
 
   submit(index: number) {
