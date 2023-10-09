@@ -11,16 +11,26 @@ export class LeaderHomePage implements OnInit {
   constructor(private router: Router) { }
 
 
-  toRegister() {
-    this.router.navigate(['/register-general'])
+  toEscalas() {
+    this.router.navigate(['/edit-escala'])
   }
-  toEdit() {
-    this.router.navigate(['/edit-general'])
+  toBandas() {
+    this.router.navigate(['/sel-banda'])
   }
-  backPage(rota: string) {
-    this.router.navigate([`/${rota}`])
+  toMusicas() {
+    this.router.navigate(['/edit-musica'])
+  }
+  toMusicos() {
+    this.router.navigate(['/edit-musico'])
+  }
+
+  toInstrumentos() {
+    this.router.navigate(['/edit-instrumento'])
   }
   ngOnInit() {
   }
 
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
+  }
 }

@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RegisterEscalaPage } from './register-escala.page';
+import { AddEditBandaPage } from './add-edit-banda.page';
 
-describe('RegisterEscalaPage', () => {
-  let component: RegisterEscalaPage;
-  let fixture: ComponentFixture<RegisterEscalaPage>;
+describe('AddEditBandaPage', () => {
+  let component: AddEditBandaPage;
+  let fixture: ComponentFixture<AddEditBandaPage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(RegisterEscalaPage);
+    fixture = TestBed.createComponent(AddEditBandaPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

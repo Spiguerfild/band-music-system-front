@@ -1,26 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Cadastrar Banda</ion-title>
+    <ion-title>add-edit-banda</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form #form="ngForm" [formGroup]="bandaForm" (ngSubmit)="submit()">
+  <form #form="ngForm" [formGroup]="bandaForm" *ngIf="bandaForm" (ngSubmit)="submit()">
+    <ion-item>
 
-    <ion-item lines="none">
+      <!-- <ion-label position="floating">Nome</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input> -->
+
       <ion-input formControlName="nome" type="text" label="Nome da Banda" labelPlacement="floating"></ion-input>
+
       <small class="error-message" *ngIf="bandaForm.get('nome')?.errors && form.submitted">
         Informe o nome (2 a 15 caracteres)
       </small>
     </ion-item>
+
+
+
     <ion-button expand="block" type="submit">
-      Registrar
+      {{nomeBtn}}
     </ion-button>
   </form>
-
-  <ion-fab (click)="backPage('register-general')" slot="fixed" horizontal="end" vertical="bottom">
-    <ion-fab-button>
-      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>
+
+<ion-footer>
+  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+    Deletar Banda
+  </ion-button>
+</ion-footer>

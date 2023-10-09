@@ -24,40 +24,16 @@ const routes: Routes = [
     loadChildren: () => import('./viewLeader/leader-home/leader-home.module').then(m => m.LeaderHomePageModule)
   },
   {
-    path: 'edit-general',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-general/edit-general.module').then(m => m.EditGeneralPageModule)
+    path: 'sel-banda',
+    loadChildren: () => import('./viewLeader/banda/sel-banda/sel-banda.module').then(m => m.SelBandaPageModule)
   },
   {
-    path: 'edit-musica',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-musica/edit-musica.module').then(m => m.EditMusicaPageModule)
+    path: 'add-edit-banda/:id',
+    loadChildren: () => import('./viewLeader/banda/add-edit-banda/add-edit-banda.module').then(m => m.AddEditBandaPageModule)
   },
-  {
-    path: 'edit-musico',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-musico/edit-musico.module').then(m => m.EditMusicoPageModule)
-  },
-  {
-    path: 'edit-instrumento',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-instrumento/edit-instrumento.module').then(m => m.EditInstrumentoPageModule)
-  },
-  {
-    path: 'edit-banda',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-banda/edit-banda.module').then(m => m.EditBandaPageModule)
-  },
-  {
-    path: 'register-banda',
-    loadChildren: () => import('./viewLeader/leaderRegisters/register-banda/register-banda.module').then(m => m.RegisterBandaPageModule)
-  },
-  {
-    path: 'register-general',
-    loadChildren: () => import('./viewLeader/leaderRegisters/register-general/register-general.module').then(m => m.RegisterGeneralPageModule)
-  },
-  {
-    path: 'edit-escala',
-    loadChildren: () => import('./viewLeader/leaderEdits/edit-escala/edit-escala.module').then( m => m.EditEscalaPageModule)
-  },  {
-    path: 'register-escala',
-    loadChildren: () => import('./viewLeader/leaderRegisters/register-escala/register-escala.module').then( m => m.RegisterEscalaPageModule)
-  },
+
+
+
 
 
 ];

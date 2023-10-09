@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RegisterEscalaPage } from './register-escala.page';
+import { SelBandaPage } from './sel-banda.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: RegisterEscalaPage
+    component: SelBandaPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class RegisterEscalaPageRoutingModule {}
+export class SelBandaPageRoutingModule {}

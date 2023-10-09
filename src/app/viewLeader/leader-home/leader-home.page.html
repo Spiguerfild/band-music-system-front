@@ -5,22 +5,26 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="vertical-center" [fullscreen]="true">
+<ion-content [fullscreen]="true">
   <div class="vertical-center">
+    <ion-button (click)="toEscalas()" color="secondary" expand="block" fill="outline"
+      class="custom-button">Escala</ion-button>
+    <ion-button (click)="toBandas()" color="secondary" expand="block" fill="outline"
+      class="custom-button">Banda</ion-button>
+    <ion-button (click)="toMusicas()" color="secondary" expand="block" fill="outline"
+      class="custom-button">Musicas</ion-button>
+    <ion-button (click)="toMusicos()" color="secondary" expand="block" fill="outline"
+      class="custom-button">Músicos</ion-button>
+    <ion-button (click)="toInstrumentos()" color="secondary" expand="block" fill="outline"
+      class="custom-button">Instrumento</ion-button>
 
-    <ion-button (click)="toRegister()" color="secondary" expand="block" fill="outline"
-      class="custom-button">Cadastro</ion-button>
-    <ion-button (click)="toEdit()" color="secondary" expand="block" fill="outline"
-      class="custom-button">Edição</ion-button>
+
+
+    <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
+      <ion-fab-button>
+        <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
   </div>
-
-
-
-
-  <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
-    <ion-fab-button>
-      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
 </ion-content>

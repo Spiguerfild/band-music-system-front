@@ -13,7 +13,9 @@ export class bandaService {
   findAll(): Observable<BandaDTO[]> {
     return this.http.get<BandaDTO[]>(`${API_CONFIG.baseUrl}/bandas`);
   }
-
+  findById(id: number): Observable<BandaDTO> {
+    return this.http.get<BandaDTO>(`${API_CONFIG.baseUrl}/bandas/${id}`);
+  }
 
   insert(banda: BandaDTO) {
     return this.http.post(`${API_CONFIG.baseUrl}/bandas`, banda, {

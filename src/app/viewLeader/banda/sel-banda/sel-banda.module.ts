@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditMusicaPageRoutingModule } from './edit-musica-routing.module';
+import { SelBandaPageRoutingModule } from './sel-banda-routing.module';
 
-import { EditMusicaPage } from './edit-musica.page';
+import { SelBandaPage } from './sel-banda.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditMusicaPageRoutingModule
+    SelBandaPageRoutingModule
   ],
-  declarations: [EditMusicaPage]
+  declarations: [SelBandaPage]
 })
-export class EditMusicaPageModule {}
+export class SelBandaPageModule {}

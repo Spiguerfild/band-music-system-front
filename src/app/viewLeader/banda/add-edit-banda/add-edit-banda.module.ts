@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterEscalaPageRoutingModule } from './register-escala-routing.module';
+import { AddEditBandaPageRoutingModule } from './add-edit-banda-routing.module';
 
-import { RegisterEscalaPage } from './register-escala.page';
+import { AddEditBandaPage } from './add-edit-banda.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
     ReactiveFormsModule,
-    RegisterEscalaPageRoutingModule
+    IonicModule,
+    AddEditBandaPageRoutingModule
   ],
-  declarations: [RegisterEscalaPage]
+  declarations: [AddEditBandaPage]
 })
-export class RegisterEscalaPageModule { }
+export class AddEditBandaPageModule { }
