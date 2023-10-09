@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>add-edit-banda</ion-title>
+    <ion-title>Editar banda</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,9 +24,14 @@
       {{nomeBtn}}
     </ion-button>
   </form>
+  <ion-fab (click)="backPage('sel-banda')" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
 
-<ion-footer>
+<ion-footer *ngIf="modoEdit">
   <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
     Deletar Banda
   </ion-button>

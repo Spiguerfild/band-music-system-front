@@ -13,6 +13,7 @@ export class AddEditBandaPage implements OnInit {
   bandaForm!: FormGroup;
   nomeBtn = '';
   cadOrAlt!: boolean;
+  modoEdit = false;
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public bandaService: bandaService,
@@ -28,6 +29,7 @@ export class AddEditBandaPage implements OnInit {
     if (id > 0) {
       this.nomeBtn = 'Alterar';
       this.cadOrAlt = true;
+      this.modoEdit = true
       this.bandaService.findById(id).subscribe(response => {
         this.bandaForm = this.formBuilder.group({
           id: [response.id],
@@ -90,7 +92,7 @@ export class AddEditBandaPage implements OnInit {
                 // Banda excluída com sucesso, você pode redirecionar para uma página diferente
                 // ou realizar alguma ação específica após a exclusão.
                 console.log('Banda excluída com sucesso.');
-                this.router.navigate(['/outra-rota']);
+                this.router.navigate(['/sel-banda']);
               },
               (error) => {
                 // Tratar erros de exclusão aqui, exibindo uma mensagem de erro ou
@@ -116,6 +118,10 @@ export class AddEditBandaPage implements OnInit {
     });
 
     await alert.present();
-    this.router.navigate(['/leader-home'])
+    this.router.navigate(['sel-banda'])
+  }
+
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
   }
 }
