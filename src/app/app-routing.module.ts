@@ -47,6 +47,15 @@ const routes: Routes = [
     path: 'add-edit-musico/:id',
     loadChildren: () => import('./viewLeader/musico/add-edit-musico/add-edit-musico.module').then(m => m.AddEditMusicoPageModule)
   },
+  {
+    path: 'sel-instrumento',
+    loadChildren: () => import('./viewLeader/instrumento/sel-instrumento/sel-instrumento.module').then(m => m.SelInstrumentoPageModule)
+  },
+  {
+    path: 'add-edit-instrumento/:id',
+    loadChildren: () => import('./viewLeader/instrumento/add-edit-instrumento/add-edit-instrumento.module').then(m => m.AddEditInstrumentoPageModule)
+  },
+
 
 
 
