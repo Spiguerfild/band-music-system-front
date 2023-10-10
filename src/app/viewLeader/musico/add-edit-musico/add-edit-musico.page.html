@@ -1,13 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>add-edit-musico</ion-title>
+    <ion-title>Editar musico</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add-edit-musico</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form #form="ngForm" [formGroup]="musicoForm" *ngIf="musicoForm" (ngSubmit)="submit()">
+    <ion-item>
+
+
+
+      <ion-input formControlName="nome" type="text" label="Nome do musico" labelPlacement="floating"></ion-input>
+
+      <small class="error-message" *ngIf="musicoForm.get('nome')?.errors && form.submitted">
+        Informe o nome (2 a 15 caracteres)
+      </small>
+    </ion-item>
+
+
+
+    <ion-button expand="block" type="submit">
+      {{nomeBtn}}
+    </ion-button>
+  </form>
+  <ion-fab (click)="backPage('sel-musico')" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+<ion-footer *ngIf="modoEdit">
+  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+    Deletar Musico
+  </ion-button>
+</ion-footer>

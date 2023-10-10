@@ -38,13 +38,14 @@ const routes: Routes = [
   {
     path: 'sel-musica',
     loadChildren: () => import('./viewLeader/musica/sel-musica/sel-musica.module').then(m => m.SelMusicaPageModule)
-  },  {
-    path: 'sel-musico',
-    loadChildren: () => import('./viewLeader/musico/sel-musico/sel-musico.module').then( m => m.SelMusicoPageModule)
   },
   {
-    path: 'add-edit-musico',
-    loadChildren: () => import('./viewLeader/musico/add-edit-musico/add-edit-musico.module').then( m => m.AddEditMusicoPageModule)
+    path: 'sel-musico',
+    loadChildren: () => import('./viewLeader/musico/sel-musico/sel-musico.module').then(m => m.SelMusicoPageModule)
+  },
+  {
+    path: 'add-edit-musico/:id',
+    loadChildren: () => import('./viewLeader/musico/add-edit-musico/add-edit-musico.module').then(m => m.AddEditMusicoPageModule)
   },
 
 

@@ -12,7 +12,7 @@ export class LeaderHomePage implements OnInit {
 
 
   toEscalas() {
-    this.router.navigate(['/edit-escala'])
+    this.router.navigate(['/sel-escala'])
   }
   toBandas() {
     this.router.navigate(['/sel-banda'])
@@ -21,11 +21,11 @@ export class LeaderHomePage implements OnInit {
     this.router.navigate(['/sel-musica'])
   }
   toMusicos() {
-    this.router.navigate(['/edit-musico'])
+    this.router.navigate(['/sel-musico'])
   }
 
   toInstrumentos() {
-    this.router.navigate(['/edit-instrumento'])
+    this.router.navigate(['/sel-instrumento'])
   }
   ngOnInit() {
   }
