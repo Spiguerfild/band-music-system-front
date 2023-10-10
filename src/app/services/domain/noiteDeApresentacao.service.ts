@@ -26,4 +26,7 @@ export class noiteDeApresentacaoService {
   update(id: number, escala: NoiteDeApresentacaoDTO) {
     return this.http.put(`${API_CONFIG.baseUrl}/noitesdeapresentacao/${id}`, escala)
   }
+  delete(id: number) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/noitesdeapresentacao/${id}`)
+  }
 }

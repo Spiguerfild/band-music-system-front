@@ -55,6 +55,15 @@ const routes: Routes = [
     path: 'add-edit-instrumento/:id',
     loadChildren: () => import('./viewLeader/instrumento/add-edit-instrumento/add-edit-instrumento.module').then(m => m.AddEditInstrumentoPageModule)
   },
+  {
+    path: 'add-edit-escala/:id',
+    loadChildren: () => import('./viewLeader/escala/add-edit-escala/add-edit-escala.module').then(m => m.AddEditEscalaPageModule)
+  },
+  {
+    path: 'sel-escala',
+    loadChildren: () => import('./viewLeader/escala/sel-escala/sel-escala.module').then(m => m.SelEscalaPageModule)
+  },
+
 
 
 

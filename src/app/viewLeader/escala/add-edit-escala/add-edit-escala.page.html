@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar escala</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #form="ngForm" [formGroup]="escalaForm" *ngIf="escalaForm" (ngSubmit)="submit()">
+
+    <!-- <ion-input formControlName="bandaNome" type="text" label="Nome da escala" labelPlacement="floating"></ion-input> -->
+    <ion-list>
+      <ion-item>
+        <!-- <ion-label position="stacked">Banda</ion-label> -->
+        <ion-select formControlName="banda" [placeholder]="obj.nome"> <!--coloca value aqui mas da erro-->
+          <ion-select-option *ngFor="let banda of bandas" [value]="banda">{{banda.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <small class="error-message" *ngIf="escalaForm?.get('banda')?.hasError('required') && form.submitted">
+        Selecione uma equipe
+      </small>
+
+    </ion-list>
+    <ion-datetime class="custom-input" formControlName="data"></ion-datetime>
+
+
+    <ion-button [disabled]="!escalaForm.valid" expand="block" type="submit">
+      {{nomeBtn}}
+    </ion-button>
+  </form>
+
+  <ion-fab (click)="backPage('sel-escala')" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer *ngIf="modoEdit">
+  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+    Deletar Escala
+  </ion-button>
+</ion-footer>
