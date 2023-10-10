@@ -14,4 +14,21 @@ export class MusicaService {
   findAll(): Observable<MusicaDTO[]> {
     return this.http.get<MusicaDTO[]>(`${API_CONFIG.baseUrl}/musicas`);
   }
+
+  findById(id: number): Observable<MusicaDTO> {
+    return this.http.get<MusicaDTO>(`${API_CONFIG.baseUrl}/musicas/${id}`);
+  }
+
+  insert(musica: MusicaDTO) {
+    return this.http.post(`${API_CONFIG.baseUrl}/musicas`, musica, {
+      observe: 'response', responseType: 'text'
+    });
+  }
+
+  update(id: number, musica: MusicaDTO) {
+    return this.http.put(`${API_CONFIG.baseUrl}/musicas/${id}`, musica)
+  }
+  delete(id: number) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/musicas/${id}`)
+  }
 }

@@ -18,7 +18,7 @@ export class LeaderHomePage implements OnInit {
     this.router.navigate(['/sel-banda'])
   }
   toMusicas() {
-    this.router.navigate(['/edit-musica'])
+    this.router.navigate(['/sel-musica'])
   }
   toMusicos() {
     this.router.navigate(['/edit-musico'])

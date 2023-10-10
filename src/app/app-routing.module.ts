@@ -31,6 +31,23 @@ const routes: Routes = [
     path: 'add-edit-banda/:id',
     loadChildren: () => import('./viewLeader/banda/add-edit-banda/add-edit-banda.module').then(m => m.AddEditBandaPageModule)
   },
+  {
+    path: 'add-edit-musica/:id',
+    loadChildren: () => import('./viewLeader/musica/add-edit-musica/add-edit-musica.module').then(m => m.AddEditMusicaPageModule)
+  },
+  {
+    path: 'sel-musica',
+    loadChildren: () => import('./viewLeader/musica/sel-musica/sel-musica.module').then(m => m.SelMusicaPageModule)
+  },  {
+    path: 'sel-musico',
+    loadChildren: () => import('./viewLeader/musico/sel-musico/sel-musico.module').then( m => m.SelMusicoPageModule)
+  },
+  {
+    path: 'add-edit-musico',
+    loadChildren: () => import('./viewLeader/musico/add-edit-musico/add-edit-musico.module').then( m => m.AddEditMusicoPageModule)
+  },
+
+
 
 
 

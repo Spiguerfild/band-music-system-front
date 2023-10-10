@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar musica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #form="ngForm" [formGroup]="musicaForm" *ngIf="musicaForm" (ngSubmit)="submit()">
+
+    <ion-item>
+      <ion-input formControlName="nome" type="text" label="Nome da musica" labelPlacement="floating"></ion-input>
+
+      <small class="error-message" *ngIf="musicaForm.get('nome')?.errors && form.submitted">
+        Informe o nome (2 a 30 caracteres)
+      </small>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="autor" type="text" label="Nome do autor" labelPlacement="floating"></ion-input>
+
+      <small class="error-message" *ngIf="musicaForm.get('autor')?.errors && form.submitted">
+        Informe o nome (2 a 30 caracteres)
+      </small>
+    </ion-item>
+
+
+
+    <ion-button expand="block" type="submit">
+      {{nomeBtn}}
+    </ion-button>
+  </form>
+  <ion-fab (click)="backPage('sel-musica')" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<ion-footer *ngIf="modoEdit">
+  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+    Deletar Musica
+  </ion-button>
+</ion-footer>
