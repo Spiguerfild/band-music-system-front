@@ -125,7 +125,7 @@ export class AddEditEscalaPage implements OnInit {
                 // Banda excluída com sucesso, você pode redirecionar para uma página diferente
                 // ou realizar alguma ação específica após a exclusão.
                 console.log('Banda excluída com sucesso.');
-                this.router.navigate(['/sel-escala']);
+                this.router.navigate(['/leader-home']);
               },
               (error) => {
                 // Tratar erros de exclusão aqui, exibindo uma mensagem de erro ou
@@ -151,7 +151,7 @@ export class AddEditEscalaPage implements OnInit {
     });
 
     await alert.present();
-    this.router.navigate(['sel-escala'])
+    this.router.navigate(['leader-home'])
   }
 
   backPage(rota: string) { // função que volta pra uma pagina especifica

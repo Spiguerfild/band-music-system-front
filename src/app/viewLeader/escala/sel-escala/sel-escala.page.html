@@ -4,10 +4,25 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true" class="ion-text-center">
+  <ion-item>
+    <ion-label position="stacked">Data de início</ion-label>
+    <ion-input [(ngModel)]="dataInicio" type="text" placeholder="Data início (DD/MM/YYYY)"></ion-input>
+  </ion-item>
 
-<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="stacked">Data de fim</ion-label>
+    <ion-input [(ngModel)]="dataFim" type="text" placeholder="Data fim (DD/MM/YYYY)"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" shape="round" (click)="applyDateFilter()">
+    <ion-icon name="search-outline"></ion-icon> Filtrar
+  </ion-button>
+
+
+
   <ion-list lines="full">
-    <ion-item *ngFor="let escala of escalas; let i = index">
+    <ion-item *ngFor="let escala of filteredEscalas; let i = index">
       <div>
         <ion-label>{{escala.banda.nome}}</ion-label>
       </div>
@@ -17,7 +32,6 @@
       <ion-icon (click)="toAddEditEscala(escala.id)" slot="end" color="#000" name="pencil"></ion-icon>
     </ion-item>
   </ion-list>
-
 
   <ion-fab (click)="toAddEditEscala(-1)" slot="fixed" horizontal="start" vertical="bottom">
     <ion-fab-button>
