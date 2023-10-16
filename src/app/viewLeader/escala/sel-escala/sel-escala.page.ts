@@ -21,12 +21,21 @@ export class SelEscalaPage {
       (response) => {
         this.escalas = response;
         this.applyDateFilter();
+
+        // Classifique as escalas por data após a filtragem (ou sem filtro)
+        this.filteredEscalas.sort((a, b) => {
+          const dataA = new Date(a.data[0], a.data[1] - 1, a.data[2]);
+          const dataB = new Date(b.data[0], b.data[1] - 1, b.data[2]);
+          return dataA.getTime() - dataB.getTime();
+        });
       },
       (error) => {
         console.error(error);
       }
     );
   }
+
+
 
   applyDateFilter() {
     if (this.dataInicio && this.dataFim) {
