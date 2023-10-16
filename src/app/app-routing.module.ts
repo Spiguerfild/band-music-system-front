@@ -63,6 +63,11 @@ const routes: Routes = [
     path: 'sel-escala',
     loadChildren: () => import('./viewLeader/escala/sel-escala/sel-escala.module').then(m => m.SelEscalaPageModule)
   },
+  {
+    path: 'view-escala/:id',
+    loadChildren: () => import('./viewMusicist/view-escala/view-escala.module').then(m => m.ViewEscalaPageModule)
+  },
+
 
 
 

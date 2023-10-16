@@ -9,8 +9,12 @@ import { Router } from '@angular/router';
 export class ViewHomePage implements OnInit {
 
   constructor(private router: Router) { }
-  realizarAcao() {
-
+  toViewEscala(numero: number) {
+    if (numero > 0) {
+      this.router.navigate(['view-escala/1'])
+    } else {
+      this.router.navigate(['view-escala/-1'])
+    }
   }
   backPage(rota: string) { // função que volta pra uma pagina especifica
     this.router.navigate([`/${rota}`])
