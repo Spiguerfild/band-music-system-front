@@ -17,4 +17,4 @@ import { ViewEscalaPage } from './view-escala.page';
   ],
   declarations: [ViewEscalaPage]
 })
-export class ViewEscalaPageModule {}
+export class ViewEscalaPageModule { }

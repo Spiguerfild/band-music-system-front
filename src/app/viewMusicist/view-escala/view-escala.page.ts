@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NoiteDeApresentacaoDTO } from 'src/app/models/NoiteDeApresentacaoDTO';
@@ -7,18 +8,23 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
   selector: 'app-view-escala',
   templateUrl: './view-escala.page.html',
   styleUrls: ['./view-escala.page.scss'],
+  providers: [DatePipe],
 })
 export class ViewEscalaPage implements OnInit {
-
-  dataFim: string = ''; // Data de fim
-  dataInicio = new Date()
+  today = new Date()
+  dataInicio!: Date;
+  dataFim!: Date;
   escalas: NoiteDeApresentacaoDTO[] = [];
   filteredEscalas: NoiteDeApresentacaoDTO[] = [];
   idParam: number = Number(this.route.snapshot.paramMap.get('id'));
+
   constructor(
     private escalaService: noiteDeApresentacaoService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute,
+    private datePipe: DatePipe
+  ) { }
+
 
   ngOnInit() {
   }
@@ -29,7 +35,6 @@ export class ViewEscalaPage implements OnInit {
       (response) => {
         this.escalas = response;
         this.applyDateFilter();
-
         // Classifique as escalas por data após a filtragem (ou sem filtro)
         this.filteredEscalas.sort((a, b) => {
           const dataA = new Date(a.data[0], a.data[1] - 1, a.data[2]);
@@ -43,19 +48,32 @@ export class ViewEscalaPage implements OnInit {
     );
   }
 
+  applyDateFilter() {
+    // Suponha que this.today seja um objeto Date
+    const inicio = new Date(this.today.getFullYear(), this.today.getMonth(), this.today.getDate());
+    const fim = new Date(this.today.getFullYear(), this.today.getMonth(), 31); // Suponha que você queira o último dia do mês
 
+    this.filteredEscalas = this.escalas.filter((escala) => {
+      console.log(escala.data)
+      // const dataAtualEscala = new Date(escala.data[2], escala.data[1] - 1, escala.data[0]); // Converta o array em um objeto Date
+      const dataAtualEscala = new Date(escala.data[0], escala.data[1] - 1, escala.data[2]); // Converta o array em um objeto Date
+      console.log('at', dataAtualEscala.getDay())
 
-  applyDateFilter() { /*continuar daqui*/
-    const timestamp = Date.now(); // Substitua isso pela sua data
+      // console.log('in', inicio)
+      // console.log('fi', fim)
 
-    // Crie um objeto Date a partir do timestamp
-    const data = new Date(timestamp);
-
-
+      return dataAtualEscala >= inicio && dataAtualEscala <= fim;
+    });
   }
+
 
   parseDate(dateStr: string): Date {
     const [day, month, year] = dateStr.split('/').map((part) => +part);
     return new Date(year, month - 1, day); // Mês em JavaScript é base 0, subtrai 1.
   }
+  getDiaDaSemana(data: Date): string {
+    const diasDaSemana = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
+    return diasDaSemana[data.getDay()];
+  }
+
 }
