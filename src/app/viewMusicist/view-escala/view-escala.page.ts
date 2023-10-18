@@ -34,7 +34,11 @@ export class ViewEscalaPage implements OnInit {
     this.escalaService.findAll().subscribe(
       (response) => {
         this.escalas = response;
-        this.applyDateFilter();
+        if (this.idParam > 0) {
+          this.applyDateFilter();
+        } else if (this.idParam < 0) {
+          this.filterData();
+        }
         // Classifique as escalas por data após a filtragem (ou sem filtro)
         this.filteredEscalas.sort((a, b) => {
           const dataA = new Date(a.data[0], a.data[1] - 1, a.data[2]);
@@ -76,4 +80,19 @@ export class ViewEscalaPage implements OnInit {
     return diasDaSemana[data.getDay()];
   }
 
+  filterData() {
+    if (this.dataInicio && this.dataFim) {
+      this.filteredEscalas = this.escalas.filter((escala) => {
+        const dataEscala = new Date(escala.data[0], escala.data[1] - 1, escala.data[2]);
+        //parseDate transforma o resoltuado pego em um objeto do tipo date mudando para Y/M/d
+        const dataInicio = this.dataInicio;
+        const dataFim = this.dataFim;
+
+        return dataEscala >= dataInicio && dataEscala <= dataFim;
+      });
+    } else {
+      // Se os campos de data estiverem vazios, liste todas as escalas
+      this.filteredEscalas = this.escalas;
+    }
+  }
 }

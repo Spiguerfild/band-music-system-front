@@ -4,16 +4,31 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-text-center page-content">
+  <ion-item *ngIf="idParam < 0">
+    <ion-label position="stacked">INÍCIO</ion-label>
+    <ion-input [(ngModel)]="dataInicio" type="text" placeholder="Data início (DD/MM/AAAA)"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="idParam < 0">
+    <ion-label position="stacked">FIM</ion-label>
+    <ion-input [(ngModel)]="dataFim" type="text" placeholder="Data fim (DD/MM/AAAA)"></ion-input>
+  </ion-item>
+
+  <ion-button *ngIf="idParam < 0" shape="round" (click)="applyDateFilter()">
+    <ion-icon slot="start" name="search-outline"></ion-icon> Filtrar
+  </ion-button>
+
+  <!--////////////////////////////////////////////////////////////////////////-->
   <ion-list lines="full">
     <ion-item *ngFor="let escala of filteredEscalas; let i = index">
-      <ion-text slot="start">
+      <div slot="start">
+        <ion-label>{{escala.banda.nome}}</ion-label>
+      </div>
+      <ion-text slot="end">
         {{escala.data[2]}}/{{escala.data[1]}}
         <!-- {{escala.data[1]}}/{{escala.data[0]}} -->
       </ion-text>
-      <div>
-        <ion-label>{{escala.banda.nome}}</ion-label>
-      </div>
       <ion-text slot="end">
         {{getDiaDaSemana(parseDate(escala.data[2] + '/' +
         escala.data[1] + '/' + escala.data[0]))}}
