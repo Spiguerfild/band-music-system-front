@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>sel-musico-instrumento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item *ngFor="let musicoIns of musicosInstrumentos; let i = index">
+      <div>
+        <ion-label>{{musicoIns.musico.nome}} - {{musicoIns.instrumento.nome}}</ion-label>
+      </div>
+      <ion-icon (click)="toAddEditMusicoIns(musicoIns.id)" slot="end" color="#000" name="pencil"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-fab (click)="toAddEditMusicoIns(-1)" slot="fixed" horizontal="start" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab (click)="backPage('leader-home')" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

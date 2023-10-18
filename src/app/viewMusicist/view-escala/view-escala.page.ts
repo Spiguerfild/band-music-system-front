@@ -76,7 +76,7 @@ export class ViewEscalaPage implements OnInit {
     return new Date(year, month - 1, day); // Mês em JavaScript é base 0, subtrai 1.
   }
   getDiaDaSemana(data: Date): string {
-    const diasDaSemana = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
+    const diasDaSemana = ['DOM.', 'SEG.', 'TER.', 'QUA.', 'QUI.', 'SEX.', 'SAB.'];
     return diasDaSemana[data.getDay()];
   }
 

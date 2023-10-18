@@ -27,6 +27,9 @@ export class LeaderHomePage implements OnInit {
   toInstrumentos() {
     this.router.navigate(['/sel-instrumento'])
   }
+  toMusicosInstrumentos() {
+    this.router.navigate(['/sel-musico-instrumento'])
+  }
   ngOnInit() {
   }
 

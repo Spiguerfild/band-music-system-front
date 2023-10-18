@@ -67,6 +67,15 @@ const routes: Routes = [
     path: 'view-escala/:id',
     loadChildren: () => import('./viewMusicist/view-escala/view-escala.module').then(m => m.ViewEscalaPageModule)
   },
+  {
+    path: 'add-edit-musico-instrumento/:id',
+    loadChildren: () => import('./viewLeader/musicoInstrumento/add-edit-musico-instrumento/add-edit-musico-instrumento.module').then(m => m.AddEditMusicoInstrumentoPageModule)
+  },
+  {
+    path: 'sel-musico-instrumento',
+    loadChildren: () => import('./viewLeader/musicoInstrumento/sel-musico-instrumento/sel-musico-instrumento.module').then(m => m.SelMusicoInstrumentoPageModule)
+  },
+
 
 
 
