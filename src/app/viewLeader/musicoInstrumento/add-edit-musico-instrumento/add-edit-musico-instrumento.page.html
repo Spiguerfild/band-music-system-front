@@ -5,22 +5,45 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form #form="ngForm" [formGroup]="musicaForm" *ngIf="musicaForm" (ngSubmit)="submit()">
+  <form #form="ngForm" [formGroup]="musicoInstrumentoForm" *ngIf="musicoInstrumentoForm" (ngSubmit)="submit()">
 
-    <ion-item>
-      <ion-input formControlName="nome" type="text" label="Nome da musica" labelPlacement="floating"></ion-input>
 
-      <small class="error-message" *ngIf="musicaForm.get('nome')?.errors && form.submitted">
-        Informe o nome (2 a 30 caracteres)
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label position="stacked">Musico</ion-label>
+        <ion-select formControlName="musico" [placeholder]="musicoNome">
+          <!--coloca value aqui mas da erro-->
+          <ion-select-option *ngFor="let musico of musicos" [value]="musico">{{musico.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <small class="error-message"
+        *ngIf="musicoInstrumentoForm?.get('musicoNome')?.hasError('required') && form.submitted">
+        Selecione uma equipe
       </small>
-    </ion-item>
-    <ion-item>
-      <ion-input formControlName="autor" type="text" label="Nome do autor" labelPlacement="floating"></ion-input>
 
-      <small class="error-message" *ngIf="musicaForm.get('autor')?.errors && form.submitted">
-        Informe o nome (2 a 30 caracteres)
+    </ion-list>
+
+
+
+
+
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label position="stacked">Instrumento</ion-label>
+        <ion-select formControlName="instrumento" [placeholder]="instrumentoNome">
+          <!--coloca value aqui mas da erro-->
+          <ion-select-option *ngFor="let instrumento of instrumentos"
+            [value]="instrumento">{{instrumento.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <small class="error-message"
+        *ngIf="musicoInstrumentoForm?.get('instrumentoNome')?.hasError('required') && form.submitted">
+        Selecione uma equipe
       </small>
-    </ion-item>
+
+    </ion-list>
+
+
 
 
 
@@ -29,7 +52,7 @@
     </ion-button>
   </form>
 
-  <ion-fab (click)="backPage('sel-musica')" slot="fixed" horizontal="end" vertical="bottom">
+  <ion-fab (click)="backPage('sel-musico-instrumento')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
