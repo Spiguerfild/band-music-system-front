@@ -1,17 +1,22 @@
 <ion-content [fullscreen]="true">
 
-  <ion-img src="assets/logo-band-music.png"> </ion-img>
-
+  <div class="header-home-logo">
+    <ion-img src="assets/logo-band-music.png"> </ion-img>
+    <div class="header-home-h1">
+      <h1>BAND</h1>
+      <h1>MUSIC</h1>
+    </div>
+  </div>
 
 </ion-content>
 
 <ion-footer>
-  <ion-button (click)="functionToViewHome()" expand="block" fill="solid" color="primary" class="custom-button">
+  <ion-button (click)="functionToViewHome()" expand="block" shape="round" color="primary" class="custom-button">
     <ion-icon slot="end" src="assets/song-svgrepo-com.svg"></ion-icon>
     <span class="button-text">Músico</span>
   </ion-button>
-  <ion-button (click)="functionToLogin()" expand="block" fill="outline" color="primary" class="custom-button">
-    <ion-icon slot="end" src="assets/chefe-home.svg"></ion-icon>
+  <ion-button (click)="functionToLogin()" expand="block" shape="round" fill="outline" class="custom-button">
+    <ion-icon slot="end" src="assets/edit-svgrepo-com.svg"></ion-icon>
     <span class="button-text">Líder</span>
   </ion-button>
 </ion-footer>

@@ -1,10 +1,29 @@
+.header-home-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  padding-right: 5px;
+}
+
+.header-home-h1 {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  flex: 1;
+  font-size: 35px;
+  text-align: justify;
+  padding: 0 7px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
 ion-img {
-  width: 150px;
-  align-self: center;
-  margin: auto;
+  width: 100px;
   display: block;
-  padding: 20px;
-  margin-top: 50px;
+  // flex: 1;
 }
 
 ion-footer {
@@ -16,8 +35,10 @@ ion-footer {
 ion-button {
   margin: 10px 0;
   font-size: 25px;
-
+  height: 55px;
 }
+
+
 
 .custom-button {
   display: flex;
@@ -25,8 +46,7 @@ ion-button {
 
   ion-icon {
     margin-right: 0px;
-    // fill: #0A271F;
-
+    fill: #000;
   }
 
   .button-text {
@@ -34,5 +54,6 @@ ion-button {
     text-align: start;
     font-family: 'Archivo', sans-serif;
     text-transform: capitalize;
+    color: black;
   }
 }
