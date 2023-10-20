@@ -1,9 +1,8 @@
 <ion-content [fullscreen]="true">
 
-  <ion-text color="secondary">
+  <ion-text>
     <h1>Login</h1>
   </ion-text>
-
 
   <form (ngSubmit)="submit()">
 
@@ -12,7 +11,7 @@
 
     <ion-input type="password" label="Senha" labelPlacement="floating"></ion-input>
 
-    <ion-button (click)="verificaLogin('bottom')" expand="block">Entrar</ion-button>
+    <ion-button shape="round" (click)="verificaLogin('bottom')" expand="block">Entrar</ion-button>
 
   </form>
 
@@ -21,4 +20,5 @@
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>

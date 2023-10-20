@@ -1,11 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <h1 class="title-top">Olá Líder</h1>
-    <ion-icon class="top-icon" slot="end" src="assets/chefe-home.svg" />
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-align-items-center ion-justify-content-center">
+  <div class="top-header-vld">
+    <div class="header-home-h1">
+      <h1 class="title-top">Olá</h1>
+      <h1 class="title-top">Líder</h1>
+    </div>
+
+    <ion-img class="top-img" src="assets/logo-band-music-smile.png"></ion-img>
+  </div>
+
+
+
   <div class="vertical-center">
     <ion-button (click)="toEscalas()" color="primary" expand="block" class="custom-button">Escala</ion-button>
     <ion-button (click)="toBandas()" color="primary" expand="block" class="custom-button">Banda</ion-button>

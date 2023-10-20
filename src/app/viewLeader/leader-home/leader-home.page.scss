@@ -1,22 +1,20 @@
 @import '../../../theme/variables.scss';
 
-ion-toolbar {
-  --padding-start: 10px;
-  --padding-end: 10px;
-
+.top-header-vld {
+  display: flex;
 }
 
 .title-top {
-  color: var(--ion-color-secondary);
-  font-family: 'Archivo', sans-serif;
+  // color: var(--ion-color-secondary);
+  // font-family: 'Archivo', sans-serif;
   font-size: 28px;
   font-weight: 500;
 }
 
-.top-icon {
+.top-img {
 
-  width: 75px;
-  height: 75px;
+  width: 120px;
+  height: 120px;
 }
 
 
