@@ -1,31 +1,123 @@
 <ion-content [fullscreen]="true" class="ion-align-items-center ion-justify-content-center">
   <div class="top-header-vld">
-    <div class="header-home-h1">
-      <h1 class="title-top">Olá</h1>
-      <h1 class="title-top">Líder</h1>
-    </div>
 
     <ion-img class="top-img" src="assets/logo-band-music-smile.png"></ion-img>
+
+    <ion-badge class="title-top" slot="start">
+      <!-- <h1 class="title-top">Olá líder</h1> -->
+      Olá líder !
+    </ion-badge>
+
   </div>
 
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+
+        <ion-card button (click)="toEscalas()" color="secondary">
+          <ion-card-content>
+            <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            Escalas
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+
+      <ion-col size="6">
+
+        <ion-card button (click)="toBandas()">
+          <ion-card-content>
+            <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            Bandas
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+
+        <ion-card button (click)="toMusicas()">
+          <ion-card-content>
+            <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            Musicas
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+
+      <ion-col size="6">
+
+        <ion-card button (click)="toMusicos()">
+          <ion-card-content>
+            <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            Musicos
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+
+        <ion-card button (click)="toInstrumentos()">
+          <ion-card-content>
+            <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            Instrumentos
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+
+      <ion-col size="6">
+
+        <ion-card button (click)="toMusicosInstrumentos()">
+          <ion-card-content>
+            <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+          </ion-card-content>
+          <ion-card-header>
+            Musico Toca
+          </ion-card-header>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
 
 
-  <div class="vertical-center">
-    <ion-button (click)="toEscalas()" color="primary" expand="block" class="custom-button">Escala</ion-button>
-    <ion-button (click)="toBandas()" color="primary" expand="block" class="custom-button">Banda</ion-button>
-    <ion-button (click)="toMusicas()" color="primary" expand="block" class="custom-button">Musicas</ion-button>
-    <ion-button (click)="toMusicos()" color="primary" expand="block" class="custom-button">Músicos</ion-button>
-    <ion-button (click)="toInstrumentos()" color="primary" expand="block" class="custom-button">Instrumento</ion-button>
-    <ion-button (click)="toMusicosInstrumentos()" color="primary" expand="block" class="custom-button">Musico
+
+  </ion-grid>
+
+
+  <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button>
+      <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <!-- <div class="vertical-center">
+    <ion-button  color="primary" expand="block" class="custom-button"
+      fill="outline">Escala</ion-button>
+    <ion-button  color="primary" expand="block" class="custom-button">Banda</ion-button>
+    <ion-button  color="primary" expand="block" class="custom-button">Musicas</ion-button>
+    <ion-button  color="primary" expand="block" class="custom-button">Músicos</ion-button>
+    <ion-button  color="primary" expand="block" class="custom-button">Instrumento</ion-button>
+    <ion-button  color="primary" expand="block" class="custom-button">Musico
       Toca</ion-button>
 
 
 
-    <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
-      <ion-fab-button>
-        <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+   
 
-  </div>
+  </div> -->
 </ion-content>
