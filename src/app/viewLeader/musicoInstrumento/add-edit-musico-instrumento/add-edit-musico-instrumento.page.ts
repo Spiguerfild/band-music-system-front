@@ -8,6 +8,9 @@ import { instrumentoService } from 'src/app/services/domain/instrumento.service'
 import { MusicoService } from 'src/app/services/domain/musico.service';
 import { musicoInstrumentoService } from 'src/app/services/domain/musicoInstrumento.service';
 
+
+
+
 @Component({
   selector: 'app-add-edit-musico-instrumento',
   templateUrl: './add-edit-musico-instrumento.page.html',
@@ -22,6 +25,7 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
   modoEdit = false;
   musicoNome: string = '';
   instrumentoNome: string = '';
+  img = 'assets/back-btn.svg';
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public musicoInstrumentoService: musicoInstrumentoService,
@@ -88,19 +92,34 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
 
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
 
-    if (this.cadOrAlt) {
+    if (this.cadOrAlt) { //se for pra ALTERAR
       this.musicoInstrumentoService.update(id, this.musicoInstrumentoForm.value)
-        .subscribe(response => {
-          this.presentAlert('Sucesso', 'Musica alterada',
-            'Os dados foram alterados com sucesso', ['Ok',]);
-        })
-    } else {
+        .subscribe(
+          response => {
+            this.presentAlert('Sucesso', 'Musica alterada',
+              'Os dados foram alterados com sucesso', ['Ok',]);
+          },
+          error => {
+            this.presentAlert('Erro', 'Ops... Parece que este musico já está cadastrado',
+              'Revise sua lista antes de tentar novamente', ['Ok']);
+          }
+
+        )
+
+
+    } else {//se for pra CADASTRAR
       console.log('sub cad --->', this.musicoInstrumentoForm.value)
       this.musicoInstrumentoService.insert(this.musicoInstrumentoForm.value)
         .subscribe(response => {
           this.presentAlert('Sucesso', 'Musica salva',
             'Os dados foram salvos com sucesso', ['Ok',]);
-        })
+        },
+          error => {
+            this.presentAlert(`<img src="${this.img}" alt="g-maps" style="border-radius: 2px">`, 'Ops... Parece que este musico já está cadastrado',
+              'Revise sua lista antes de tentar novamente', ['Ok']);
+          }
+
+        )
     }
 
   }
@@ -150,11 +169,14 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
       subHeader,
       message,
       buttons,
+
     });
 
     await alert.present();
     this.router.navigate(['sel-musico-instrumento'])
   }
+
+
 
   backPage(rota: string) { // função que volta pra uma pagina especifica
     this.router.navigate([`/${rota}`])
