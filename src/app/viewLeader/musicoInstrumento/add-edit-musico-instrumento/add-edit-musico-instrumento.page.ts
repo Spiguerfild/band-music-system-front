@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { InstrumentoDTO } from 'src/app/models/InstrumentoDTO';
 import { MusicoDTO } from 'src/app/models/MusicoDTO';
 import { instrumentoService } from 'src/app/services/domain/instrumento.service';
@@ -25,7 +25,7 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
   modoEdit = false;
   musicoNome: string = '';
   instrumentoNome: string = '';
-  img = 'assets/back-btn.svg';
+  isModalOpen = false;
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public musicoInstrumentoService: musicoInstrumentoService,
@@ -33,7 +33,7 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
     public instrumentoService: instrumentoService,
     private alertController: AlertController,
     private router: Router,
-
+    private modalController: ModalController,
   ) { }
 
   ionViewDidEnter() {
@@ -100,8 +100,9 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
               'Os dados foram alterados com sucesso', ['Ok',]);
           },
           error => {
-            this.presentAlert('Erro', 'Ops... Parece que este musico já está cadastrado',
-              'Revise sua lista antes de tentar novamente', ['Ok']);
+
+            this.setOpen(true);
+
           }
 
         )
@@ -115,8 +116,9 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
             'Os dados foram salvos com sucesso', ['Ok',]);
         },
           error => {
-            this.presentAlert(`<img src="${this.img}" alt="g-maps" style="border-radius: 2px">`, 'Ops... Parece que este musico já está cadastrado',
-              'Revise sua lista antes de tentar novamente', ['Ok']);
+
+            this.setOpen(true);
+
           }
 
         )
@@ -178,8 +180,19 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
 
 
 
-  backPage(rota: string) { // função que volta pra uma pagina especifica
-    this.router.navigate([`/${rota}`])
+  backPage(rota: string) {
+    if (this.isModalOpen) {
+      this.modalController.dismiss(); // Fecha o modal antes de navegar para outra página
+    }
+    this.router.navigate([`/${rota}`]);
   }
 
+  // modal
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+    if (!isOpen) {
+      this.modalController.dismiss(); // Fecha o modal quando isOpen for definido como falso
+    }
+  }
 }

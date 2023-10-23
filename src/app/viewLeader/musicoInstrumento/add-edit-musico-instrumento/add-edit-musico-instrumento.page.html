@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>add-edit-musico-instrumento</ion-title>
+    <ion-title>Musico instrumento</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -57,5 +57,32 @@
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+
+  <!--modallllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll-->
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content>
+        <div class="modal-content">
+          <ion-img src="assets/logo-band-music-smile-error.png"></ion-img>
+
+          <H1>OPS...</H1>
+          <h6>Este músico/instrumento já está registrado. Por favor, procure na lista ou tente novamente.</h6>
+          <p>404</p>
+        </div>
+
+
+        <ion-fab (click)="backPage('sel-musico-instrumento')" slot="fixed" horizontal="end" vertical="bottom">
+          <ion-fab-button>
+            <!-- <ion-icon size="large" src="assets/back-btn.svg"></ion-icon> -->
+            voltar
+          </ion-fab-button>
+        </ion-fab>
+      </ion-content>
+
+    </ng-template>
+  </ion-modal>
+
 
 </ion-content>
