@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true" class="ion-text-center page-content">
-
+  <h1>Escalas</h1>
 
   <ion-item *ngIf="idParam < 0">
     <ion-label position="stacked">INÍCIO</ion-label>
@@ -16,16 +16,21 @@
   </ion-button>
 
   <!--////////////////////////////////////////////////////////////////////////-->
+  <div class="infos">
+    <h6>Banda</h6>
+    <h6>Data</h6>
+    <h6>D.Sem</h6>
+  </div>
   <ion-list lines="full">
     <ion-item *ngFor="let escala of filteredEscalas; let i = index">
-      <div slot="start">
-        <ion-label>{{escala.banda.nome}}</ion-label>
-      </div>
-      <ion-text slot="end">
+      <!-- <div slot="start"> -->
+      <ion-text style="text-align: start;" class="val-one ">{{escala.banda.nome}}</ion-text>
+      <!-- </div> -->
+      <ion-text class="val-one">
         {{escala.data[2]}}/{{escala.data[1]}}
         <!-- {{escala.data[1]}}/{{escala.data[0]}} -->
       </ion-text>
-      <ion-text slot="end">
+      <ion-text style="text-align: end;" class="val-one">
         {{getDiaDaSemana(parseDate(escala.data[2] + '/' +
         escala.data[1] + '/' + escala.data[0]))}}
       </ion-text>
