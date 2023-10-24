@@ -1,36 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <p class="text-top">Olá Músico,</p>
-    <h1 class="title-top">Escalas</h1>
-    <!-- <ion-icon class="top-icon" slot="end" src="assets/song-svgrepo-com.svg" /> -->
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="content-center">
 
-<ion-content [fullscreen]="true">
-
+  <div class="top-header-vld">
+    <ion-img class="top-img" src="assets/logo-band-music-smile.png"></ion-img>
+    <ion-badge class="title-top" slot="start">Olá músico!</ion-badge>
+  </div>
 
   <ion-card button (click)="toViewEscala(1)">
     <ion-card-content>
       <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+      <h4>Escala da Semana</h4>
     </ion-card-content>
-    <ion-card-header>
-      Escala da Semana
-    </ion-card-header>
   </ion-card>
 
   <ion-card button (click)="toViewEscala(-1)">
     <ion-card-content>
       <ion-icon class="calendarios" src="assets/calendarMaior.svg"></ion-icon>
+      <h4>Escala Geral</h4>
     </ion-card-content>
-    <ion-card-header>
-      Escala Geral
-    </ion-card-header>
   </ion-card>
-
 
   <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
 </ion-content>

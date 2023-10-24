@@ -1,87 +1,90 @@
-@import '../../../theme/variables.scss';
+/* Evite comentários dentro do código que não sejam úteis para futuros desenvolvedores. */
 
+/* Use variáveis para cores em todo o seu código para facilitar as alterações futuras. */
 ion-toolbar {
   --padding-start: 10px;
   --padding-end: 10px;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Centraliza verticalmente */
+  align-items: center;
+  /* Centraliza horizontalmente */
 }
 
 ion-icon {
   fill: #000;
 }
 
-p,
-h1 {
+
+h4 {
   font-family: 'Archivo', sans-serif;
   color: #000;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.text-top {
-  font-size: 15px;
-}
 
 .title-top {
-  font-size: 30px;
+  background: var(--ion-color-primary-grad);
+  // background: none;
+  // font-family: 'Archivo', sans-serif;
+  font-size: 28px;
   font-weight: 500;
+  margin-top: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border-bottom-left-radius: inherit;
 }
 
-.top-icon {
-  width: 75px;
-  height: 75px;
+.top-img {
+  width: 90px;
+  height: 90px;
 }
 
-
-
+/* Considerar refatorar regras semelhantes para manter o código mais limpo. */
 ion-card {
   background-color: #fff;
-  /* Cor de fundo do cartão */
-  border-radius: 8px;
-  /* Arredondamento das bordas do cartão */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  /* Sombra do cartão */
+  width: 250px;
+  height: 150px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: transform 0.2s ease-in-out;
-  /* Efeito de transição suave */
   margin-bottom: 8px;
+  margin-top: 20px;
 
   &:hover {
-    transform: scale(1.02);
-    /* Efeito de escala no hover */
+    transform: scale(1.04);
+    background: var(--ion-color-warning);
+    transition: .3s;
   }
 }
 
 
 
-/* Estilo para o conteúdo do cartão (ícone e título) */
+ion-card-header {
+  font-size: 20px;
+}
+
 ion-card-content,
 ion-card-header {
   text-align: center;
 }
 
-/* Estilo para o ícone */
 .calendarios {
   width: 70px;
-  /* Largura do ícone */
   height: 70px;
-  /* Altura do ícone */
   margin: 16px auto;
-  /* Margem superior e inferior para centralizar verticalmente */
 }
 
-/*botão de voltar*/
-// .back-btn {
-//   width: 40px;
-//   height: 40px;
-//   padding: 5px 7px 5px 5px;
-//   border: 3px solid #000;
-//   overflow: hidden;
-//   position: absolute;
-//   bottom: 10px;
-//   right: 10px;
-//   border-radius: 50%;
-//   background-color: var(--ion-color-primary);
-//   transition: transform 0.2s ease-in-out;
-
-//   &:hover {
-//     transform: scale(1.03);
-//     /* Efeito de escala no hover */
-//   }
-// }
+.top-header-vld {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}

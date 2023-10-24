@@ -26,6 +26,8 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
   musicoNome: string = '';
   instrumentoNome: string = '';
   isModalOpen = false;
+  changeBtn = false;
+
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public musicoInstrumentoService: musicoInstrumentoService,
@@ -194,5 +196,9 @@ export class AddEditMusicoInstrumentoPage implements OnInit {
     if (!isOpen) {
       this.modalController.dismiss(); // Fecha o modal quando isOpen for definido como falso
     }
+  }
+
+  changeSelectBtn() {
+    this.changeBtn = true
   }
 }
