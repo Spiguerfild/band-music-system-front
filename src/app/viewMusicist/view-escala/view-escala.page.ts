@@ -82,6 +82,7 @@ export class ViewEscalaPage implements OnInit {
 
   filterData() {
     if (this.dataInicio && this.dataFim) {
+      console.log('entrou')
       this.filteredEscalas = this.escalas.filter((escala) => {
         const dataEscala = new Date(escala.data[0], escala.data[1] - 1, escala.data[2]);
         //parseDate transforma o resoltuado pego em um objeto do tipo date mudando para Y/M/d
