@@ -5,19 +5,22 @@
     <ion-badge class="title-top" slot="start">Olá músico!</ion-badge>
   </div>
 
-  <ion-card button (click)="toViewEscala(1)">
-    <ion-card-content>
-      <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
-      <h4>Escala da Semana</h4>
-    </ion-card-content>
-  </ion-card>
+  <div style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
 
-  <ion-card button (click)="toViewEscala(-1)">
-    <ion-card-content>
-      <ion-icon class="calendarios" src="assets/calendarMaior.svg"></ion-icon>
-      <h4>Escala Geral</h4>
-    </ion-card-content>
-  </ion-card>
+    <ion-card button (click)="toViewEscala(1)">
+      <ion-card-content>
+        <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
+        <h4>Escala da Semana</h4>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card button (click)="toViewEscala(-1)">
+      <ion-card-content>
+        <ion-icon class="calendarios" src="assets/calendarMaior.svg"></ion-icon>
+        <h4>Escala Geral</h4>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
   <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
