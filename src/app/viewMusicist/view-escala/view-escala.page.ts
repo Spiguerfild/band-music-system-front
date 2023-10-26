@@ -12,8 +12,8 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
 })
 export class ViewEscalaPage implements OnInit {
   today = new Date()
-  dataInicio!: Date;
-  dataFim!: Date;
+  dataInicio!: string;
+  dataFim!: string;
   escalas: NoiteDeApresentacaoDTO[] = [];
   filteredEscalas: NoiteDeApresentacaoDTO[] = [];
   idParam: number = Number(this.route.snapshot.paramMap.get('id'));
@@ -80,20 +80,41 @@ export class ViewEscalaPage implements OnInit {
     return diasDaSemana[data.getDay()];
   }
 
+  // filterData() {
+  //   if (this.dataInicio && this.dataFim) {
+  //     this.filteredEscalas = this.escalas.filter((escala) => {
+  //       const dataEscala = new Date(escala.data[0], escala.data[1] - 1, escala.data[2]);
+  //       //parseDate transforma o resoltuado pego em um objeto do tipo date mudando para Y/M/d
+  //       const dataInicio = this.dataInicio
+  //       const dataFim = this.dataFim
+
+  //       return dataEscala >= dataInicio && dataEscala <= dataFim;
+  //     });
+  //   } else {
+  //     // Se os campos de data estiverem vazios, liste todas as escalas
+  //     this.filteredEscalas = this.escalas;
+  //   }
+  // }
   filterData() {
     if (this.dataInicio && this.dataFim) {
-      console.log('entrou')
+      const dataInicioObj = this.parseDate(this.dataInicio);
+      const dataFimObj = this.parseDate(this.dataFim);
+
       this.filteredEscalas = this.escalas.filter((escala) => {
         const dataEscala = new Date(escala.data[0], escala.data[1] - 1, escala.data[2]);
-        //parseDate transforma o resoltuado pego em um objeto do tipo date mudando para Y/M/d
-        const dataInicio = this.dataInicio;
-        const dataFim = this.dataFim;
-
-        return dataEscala >= dataInicio && dataEscala <= dataFim;
+        console.log(dataInicioObj, '---', dataFimObj, 'aaa', dataEscala)
+        return dataEscala >= dataInicioObj && dataEscala <= dataFimObj;
       });
     } else {
       // Se os campos de data estiverem vazios, liste todas as escalas
       this.filteredEscalas = this.escalas;
     }
+  }
+
+
+
+
+  backPage(rota: string) { // função que volta pra uma pagina especifica
+    this.router.navigate([`/${rota}`])
   }
 }

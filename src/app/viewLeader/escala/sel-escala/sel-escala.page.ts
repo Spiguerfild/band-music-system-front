@@ -44,7 +44,7 @@ export class SelEscalaPage {
         //parseDate transforma o resoltuado pego em um objeto do tipo date mudando para Y/M/d
         const dataInicio = this.parseDate(this.dataInicio);
         const dataFim = this.parseDate(this.dataFim);
-
+        console.log('dataEscala', dataEscala, '--dataInicio', dataInicio, 'dataFim---', dataFim)
         return dataEscala >= dataInicio && dataEscala <= dataFim;
       });
     } else {
