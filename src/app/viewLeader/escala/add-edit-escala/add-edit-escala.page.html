@@ -34,10 +34,8 @@
     </ion-fab-button>
   </ion-fab>
 
-</ion-content>
-
-<ion-footer *ngIf="modoEdit">
-  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+  <ion-button style="margin-top: 50px;" *ngIf="modoEdit" class="del-btn" color="danger" (click)="confirmDelete()"
+    expand="block">
     Deletar Escala
   </ion-button>
-</ion-footer>
+</ion-content>
