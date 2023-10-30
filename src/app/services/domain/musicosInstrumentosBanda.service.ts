@@ -7,7 +7,7 @@ import { MusicosInstrumentosBandaDTO } from "src/app/models/musicosInstrumentosB
 
 
 @Injectable()
-export class musicosInstrumentosBandaService {
+export class MusicosInstrumentosBandaService {
 
   constructor(public http: HttpClient) {
 

@@ -6,7 +6,7 @@ import { BandaDTO } from 'src/app/models/BandaDTO';
 import { MusicosInstrumentosBandaDTO } from 'src/app/models/musicosInstrumentosBandaDTO';
 import { bandaService } from 'src/app/services/domain/banda.service';
 import { musicoInstrumentoService } from 'src/app/services/domain/musicoInstrumento.service';
-import { musicosInstrumentosBandaService } from 'src/app/services/domain/musicosInstrumentosBanda.service';
+import { MusicosInstrumentosBandaService } from 'src/app/services/domain/musicosInstrumentosBanda.service';
 
 @Component({
   selector: 'app-add-edit-banda',
@@ -25,7 +25,7 @@ export class AddEditBandaPage implements OnInit {
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public bandaService: bandaService,
-    public musicosInstrumentosBandaService: musicosInstrumentosBandaService,
+    public musicosInstrumentosBandaService: MusicosInstrumentosBandaService,
     private alertController: AlertController,
     private router: Router,
   ) { }
@@ -34,19 +34,20 @@ export class AddEditBandaPage implements OnInit {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
     this.bandaService.findById(id).subscribe(response => {
       this.bandaSelected = response;
-
-      // Check if bandaSelected is defined before making the API call
-      if (this.bandaSelected) {
-        this.musicosInstrumentosBandaService.findAll(this.bandaSelected.id)
-          .subscribe(response => {
-            this.musicosInstrumentosBanda = response;
-            console.log('musicosInstrumentosBanda:', response); // Add this line
-          }, error => {
-            console.log('errozin', error);
-          });
-      }
     });
+
+    // Check if bandaSelected is defined before making the API call
+
+    this.musicosInstrumentosBandaService.findAll(1)
+      .subscribe(response => {
+        this.musicosInstrumentosBanda = response;
+        console.log('musicosInstrumwdwdentosBanda:', response); // Add this line
+      }, error => {
+        console.log('errozin', error);
+      });
   }
+
+
 
 
 

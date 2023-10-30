@@ -25,13 +25,28 @@
     </ion-button>
   </form>
 
+
   <ion-list lines="full" style="margin-top: 30px;">
-    <ion-item *ngFor="let musicoInstrumentoBanda of musicosInstrumentosBanda">
-      <!-- <ion-label>{{ musicoInstrumentoBanda.musicoInstrumento.musico.nome }}</ion-label> -->
-      <!-- <ion-label>{{ musicoInstrumento.musicoInstrumento.instrumento.nome }}</ion-label> -->
+    <ion-item *ngFor="let musicoinstrumento of musicosInstrumentosBanda; let i = index">
+      <ion-label>{{musicoinstrumento.musico.nome}} </ion-label>
+      <!-- <ion-label> - </ion-label> -->
+      <ion-label> {{musicoinstrumento.instrumento.nome}}</ion-label>
+
     </ion-item>
+
   </ion-list>
 
+  <!-- <ion-list lines="full">
+    <ion-item>
+      <ion-label position="stacked">Musico</ion-label>
+      <ion-select formControlName="musicoInstrumento" [placeholder]="musico - instrumento">
+        <ion-select-option *ngFor="let musico of musicos" [value]="musico">{{musico.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <small class="error-message" *ngIf="musicoInstrumentoForm?.get('musico')?.hasError('required') && form.submitted">
+      Selecione uma equipe
+    </small>
+  </ion-list> -->
 
   <ion-fab (click)="backPage('sel-banda')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
