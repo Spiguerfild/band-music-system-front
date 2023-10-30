@@ -17,6 +17,7 @@ export class bandaService {
     return this.http.get<BandaDTO>(`${API_CONFIG.baseUrl}/bandas/${id}`);
   }
 
+
   insert(banda: BandaDTO) {
     return this.http.post(`${API_CONFIG.baseUrl}/bandas`, banda, {
       observe: 'response', responseType: 'text'

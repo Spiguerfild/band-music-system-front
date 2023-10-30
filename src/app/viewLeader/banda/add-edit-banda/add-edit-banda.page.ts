@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { BandaDTO } from 'src/app/models/BandaDTO';
+import { MusicosInstrumentosBandaDTO } from 'src/app/models/musicosInstrumentosBandaDTO';
 import { bandaService } from 'src/app/services/domain/banda.service';
+import { musicoInstrumentoService } from 'src/app/services/domain/musicoInstrumento.service';
+import { musicosInstrumentosBandaService } from 'src/app/services/domain/musicosInstrumentosBanda.service';
 
 @Component({
   selector: 'app-add-edit-banda',
@@ -10,18 +14,43 @@ import { bandaService } from 'src/app/services/domain/banda.service';
   styleUrls: ['./add-edit-banda.page.scss'],
 })
 export class AddEditBandaPage implements OnInit {
-  bandaForm!: FormGroup;
-  nomeBtn = '';
-  cadOrAlt!: boolean;
-  modoEdit = false;
+
+  bandaForm!: FormGroup; // form de dados da banda
+  nomeBtn = ''; // variavel de nome do botão CADASTRAR | ALTERAR
+  cadOrAlt!: boolean; // variavel de controle do botão
+  modoEdit = false; // variável que torna ou não necessário o botão exlcuir 
+  musicosInstrumentosBanda!: MusicosInstrumentosBandaDTO[];
+  bandaSelected!: BandaDTO;
+
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public bandaService: bandaService,
+    public musicosInstrumentosBandaService: musicosInstrumentosBandaService,
     private alertController: AlertController,
     private router: Router,
-
   ) { }
 
+  ionViewDidEnter() {
+    const id: number = Number(this.route.snapshot.paramMap.get('id'));
+    this.bandaService.findById(id).subscribe(response => {
+      this.bandaSelected = response;
+
+      // Check if bandaSelected is defined before making the API call
+      if (this.bandaSelected) {
+        this.musicosInstrumentosBandaService.findAll(this.bandaSelected.id)
+          .subscribe(response => {
+            this.musicosInstrumentosBanda = response;
+            console.log('musicosInstrumentosBanda:', response); // Add this line
+          }, error => {
+            console.log('errozin', error);
+          });
+      }
+    });
+  }
+
+
+
+  // ao iniciar verifica se o id que veio é de um obj já existente ou se vamos criar um do zero.
   ngOnInit() {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
     console.log(id)
@@ -34,8 +63,8 @@ export class AddEditBandaPage implements OnInit {
         this.bandaForm = this.formBuilder.group({
           id: [response.id],
           nome: [response.nome, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)])],
-
         })
+
       })
     } else {
       this.nomeBtn = 'Cadastrar';

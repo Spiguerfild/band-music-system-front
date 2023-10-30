@@ -24,6 +24,15 @@
       {{nomeBtn}}
     </ion-button>
   </form>
+
+  <ion-list lines="full" style="margin-top: 30px;">
+    <ion-item *ngFor="let musicoInstrumentoBanda of musicosInstrumentosBanda">
+      <!-- <ion-label>{{ musicoInstrumentoBanda.musicoInstrumento.musico.nome }}</ion-label> -->
+      <!-- <ion-label>{{ musicoInstrumento.musicoInstrumento.instrumento.nome }}</ion-label> -->
+    </ion-item>
+  </ion-list>
+
+
   <ion-fab (click)="backPage('sel-banda')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
