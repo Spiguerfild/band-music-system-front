@@ -16,6 +16,7 @@ import { MusicosInstrumentosBandaService } from 'src/app/services/domain/musicos
 export class AddEditBandaPage implements OnInit {
 
   bandaForm!: FormGroup; // form de dados da banda
+  musicoInstrumentoForm!: FormGroup;
   nomeBtn = ''; // variavel de nome do botão CADASTRAR | ALTERAR
   cadOrAlt!: boolean; // variavel de controle do botão
   modoEdit = false; // variável que torna ou não necessário o botão exlcuir 
