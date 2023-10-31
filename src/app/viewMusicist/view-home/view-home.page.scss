@@ -6,6 +6,20 @@ ion-toolbar {
   --padding-end: 10px;
 }
 
+.top-header-vld {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+
+  margin: 40px 10px 0 5px;
+}
+
+.top-img {
+  width: 70px;
+  height: 70px;
+
+}
+
 .content-center {
   display: flex;
   flex-direction: column;
@@ -42,10 +56,7 @@ h4 {
   border-bottom-left-radius: inherit;
 }
 
-.top-img {
-  width: 70px;
-  height: 70px;
-}
+
 
 /* Considerar refatorar regras semelhantes para manter o código mais limpo. */
 ion-card {
@@ -55,17 +66,21 @@ ion-card {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: transform 0.2s ease-in-out;
-  margin-bottom: 8px;
-  margin-top: 20px;
+  // margin-bottom: 8px;
+  // margin-top: 20px;
 
-  &:hover {
-    transform: scale(0.9);
-    background: var(--ion-color-warning);
-    transition: .3s;
-  }
+  // &:hover {
+  //   transform: scale(0.9);
+  //   background: var(--ion-color-warning);
+  //   transition: .3s;
+  // }
 }
 
-
+.calendarios {
+  width: 50px;
+  height: 50px;
+  margin: 0 0 12px 0;
+}
 
 ion-card-header {
   font-size: 20px;
@@ -74,18 +89,4 @@ ion-card-header {
 ion-card-content,
 ion-card-header {
   text-align: center;
-}
-
-.calendarios {
-  width: 60px;
-  height: 60px;
-  margin: 0 0 12px 0;
-}
-
-.top-header-vld {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-top: 30px;
-  margin-right: 10px;
 }
