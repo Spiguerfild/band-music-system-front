@@ -21,7 +21,7 @@ export class MusicosInstrumentosBandaService {
   // }
 
   insert(musicoInstrumentoId: number, bandaId: number) {
-    return this.http.post(`${API_CONFIG.baseUrl}/bandas/${musicoInstrumentoId}/nabanda/${bandaId}`, {
+    return this.http.post(`${API_CONFIG.baseUrl}/bandas/${musicoInstrumentoId}/nabanda/${bandaId}`, {}, {
       observe: 'response', responseType: 'text'
     });
   }

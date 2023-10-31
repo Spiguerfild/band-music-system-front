@@ -36,17 +36,23 @@
 
   </ion-list>
 
-  <ion-list lines="full">
-    <ion-item>
-      <ion-label position="stacked">Musico</ion-label>
-      <ion-select placeholder="Musico - Instrumento">
-        <ion-select-option *ngFor="let musicoins of musicosInstrumentosBanda"
-          [value]="musicoins">{{musicoins.musico.nome}}
-          - {{musicoins.instrumento.nome}}</ion-select-option>
-      </ion-select>
-    </ion-item>
+  <div style="display: flex;">
 
-  </ion-list>
+    <ion-list lines="full" style="width: 80%;">
+      <ion-item>
+        <!-- <ion-label position="stacked"></ion-label> -->
+        <ion-select (ionChange)="atribuirValorSelecionado($event)" placeholder="Musico - Instrumento">
+          <ion-select-option *ngFor="let musicoins of musicosInstrumentos" [value]="musicoins">{{musicoins.musico.nome}}
+            - {{musicoins.instrumento.nome}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-button fill="clear" (click)="colocarMusicoInstrumento()">
+      <ion-icon size="large" name="checkmark-done-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
 
   <ion-fab (click)="backPage('sel-banda')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>

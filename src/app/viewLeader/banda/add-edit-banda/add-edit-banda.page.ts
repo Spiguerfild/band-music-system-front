@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { BandaDTO } from 'src/app/models/BandaDTO';
 import { MusicosInstrumentosBandaDTO } from 'src/app/models/musicosInstrumentosBandaDTO';
+import { MusicoInstrumentoDTO } from 'src/app/models/MusicoInstrumentoDTO';
 import { bandaService } from 'src/app/services/domain/banda.service';
 import { musicoInstrumentoService } from 'src/app/services/domain/musicoInstrumento.service';
 import { MusicosInstrumentosBandaService } from 'src/app/services/domain/musicosInstrumentosBanda.service';
@@ -21,11 +22,14 @@ export class AddEditBandaPage implements OnInit {
   cadOrAlt!: boolean; // variavel de controle do botão
   modoEdit = false; // variável que torna ou não necessário o botão exlcuir 
   musicosInstrumentosBanda!: MusicosInstrumentosBandaDTO[];
+  musicosInstrumentos!: MusicoInstrumentoDTO[];
   bandaSelected!: BandaDTO;
+  musicoinstrumentoSelected!: MusicoInstrumentoDTO;
 
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public bandaService: bandaService,
+    public musicosInstrumentosService: musicoInstrumentoService,
     public musicosInstrumentosBandaService: MusicosInstrumentosBandaService,
     private alertController: AlertController,
     private router: Router,
@@ -39,13 +43,24 @@ export class AddEditBandaPage implements OnInit {
 
     // Check if bandaSelected is defined before making the API call
 
-    this.musicosInstrumentosBandaService.findAll(1)
+    this.musicosInstrumentosBandaService.findAll(id)
       .subscribe(response => {
         this.musicosInstrumentosBanda = response;
+      }, error => {
+        console.log('errozin', error);
+      });
+
+    this.musicosInstrumentosService.findAll()
+      .subscribe(response => {
+        this.musicosInstrumentos = response;
+
         console.log('musicosInstrumwdwdentosBanda:', response); // Add this line
       }, error => {
         console.log('errozin', error);
       });
+
+
+
   }
 
 
@@ -150,6 +165,22 @@ export class AddEditBandaPage implements OnInit {
 
     await alert.present();
     this.router.navigate(['sel-banda'])
+  }
+
+  colocarMusicoInstrumento() {
+    if (this.musicoinstrumentoSelected === undefined) {
+      return;
+    }
+    console.log(this.musicoinstrumentoSelected)
+    this.musicosInstrumentosBandaService.insert(this.musicoinstrumentoSelected.id, this.bandaSelected.id)
+      .subscribe(response => {
+        this.presentAlert('Sucesso', 'Escala alterada',
+          'Musico e seu instrumento adicionados com sucesso', ['Ok',]);
+      })
+  }
+
+  atribuirValorSelecionado(event: any) {
+    this.musicoinstrumentoSelected = event.detail.value;
   }
 
   backPage(rota: string) { // função que volta pra uma pagina especifica
