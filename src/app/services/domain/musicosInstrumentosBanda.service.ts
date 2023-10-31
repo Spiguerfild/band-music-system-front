@@ -28,7 +28,7 @@ export class MusicosInstrumentosBandaService {
   // update(id: number, musicoIns: MusicosInstrumentosBandaDTO) {
   //   return this.http.put(`${API_CONFIG.baseUrl}/musicosinstrumentos/${id}`, musicoIns)
   // }
-  // delete(id: number) {
-  //   return this.http.delete(`${API_CONFIG.baseUrl}/musicosinstrumentos/${id}`)
-  // }
+  delete(musicoInstrumentoId: number, bandaId: number) {
+    return this.http.delete(`${API_CONFIG.baseUrl}/bandas/musicoinstrumentoNaBanda/${musicoInstrumentoId}/${bandaId}`)
+  }
 }

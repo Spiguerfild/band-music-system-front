@@ -11,7 +11,11 @@
       <!-- <ion-label position="floating">Nome</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input> -->
 
-      <ion-input formControlName="nome" type="text" label="Nome da Banda" labelPlacement="floating"></ion-input>
+      <ion-input formControlName="nome" type="text" label="Nome da Banda" labelPlacement="floating"
+        (ionChange)="onNomeChange($event)"></ion-input>
+
+
+
 
       <small class="error-message" *ngIf="bandaForm.get('nome')?.errors && form.submitted">
         Informe o nome (2 a 15 caracteres)
@@ -25,13 +29,15 @@
         <ion-label style="text-align: start;">{{musicoinstrumento.musico.nome}} </ion-label>
         <!-- <ion-label> - </ion-label> -->
         <ion-label> {{musicoinstrumento.instrumento.nome}}</ion-label>
-        <ion-icon name="close-circle-outline"></ion-icon>
+        <ion-button fill="clear" (click)="retirarMusicoInstrumento(i)">
+          <ion-icon style="font-size: 25px; color: black;" name="close-circle-outline"></ion-icon>
+        </ion-button>
       </ion-item>
 
     </ion-list>
 
     <div style="display: flex;" *ngIf="modoEdit">
-      <ion-list lines="full" style="width: 80%;">
+      <ion-list lines="full" style="width: 95%;">
         <ion-item>
           <ion-select (ionChange)="atribuirValorSelecionado($event)" placeholder="Musico - Instrumento">
             <ion-select-option *ngFor="let musicoins of musicosInstrumentos"
@@ -44,11 +50,11 @@
       </ion-list>
 
       <ion-button fill="clear" (click)="colocarMusicoInstrumento()">
-        <ion-icon size="large" name="checkmark-done-circle-outline"></ion-icon>
+        <ion-icon style="font-size: 37px;" name="checkmark-done-circle-outline"></ion-icon>
       </ion-button>
     </div>
 
-    <ion-button style="margin-top: 10px;" expand="block" type="submit">
+    <ion-button style="margin-top: 10px;" expand="block" type="submit" [disabled]="!nomeBandaAlterado">
       {{nomeBtn}} nome da banda
     </ion-button>
   </form>

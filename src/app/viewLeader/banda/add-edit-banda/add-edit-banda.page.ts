@@ -25,7 +25,8 @@ export class AddEditBandaPage implements OnInit {
   musicosInstrumentos!: MusicoInstrumentoDTO[];
   bandaSelected!: BandaDTO;
   musicoinstrumentoSelected!: MusicoInstrumentoDTO;
-
+  nomeBandaAlterado: boolean = false; // Variável para rastrear se o nome da banda foi alterado
+  originalNomeBanda: string = '';
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public bandaService: bandaService,
@@ -58,40 +59,39 @@ export class AddEditBandaPage implements OnInit {
       }, error => {
         console.log('errozin', error);
       });
-
-
-
   }
-
-
-
-
 
   // ao iniciar verifica se o id que veio é de um obj já existente ou se vamos criar um do zero.
   ngOnInit() {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
-    console.log(id)
+    console.log(id);
 
     if (id > 0) {
       this.nomeBtn = 'Alterar';
       this.cadOrAlt = true;
-      this.modoEdit = true
+      this.modoEdit = true;
       this.bandaService.findById(id).subscribe(response => {
+        this.bandaSelected = response;
+        this.originalNomeBanda = response.nome; // Armazene o valor original
         this.bandaForm = this.formBuilder.group({
           id: [response.id],
           nome: [response.nome, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)])],
-        })
-
-      })
+        });
+      });
     } else {
       this.nomeBtn = 'Cadastrar';
       this.cadOrAlt = false;
+      this.originalNomeBanda = ''; // Inicialize o valor original como vazio para um novo cadastro
       this.bandaForm = this.formBuilder.group({
         id,
         nome: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(15)])],
-      })
+      });
     }
+
+    // Restante do código...
   }
+
+
 
   submit() {
     if (this.bandaForm.invalid || this.bandaForm.pending) {
@@ -106,6 +106,7 @@ export class AddEditBandaPage implements OnInit {
           this.presentAlert('Sucesso', 'Banda alterada',
             'Os dados foram alterados com sucesso', ['Ok',]);
         })
+
     } else {
       this.bandaService.insert(this.bandaForm.value)
         .subscribe(response => {
@@ -115,6 +116,15 @@ export class AddEditBandaPage implements OnInit {
     }
 
   }
+
+  onNomeChange(event: any) {
+    const newNome = event.detail.value;
+    // Compare o novo nome com o valor original do nome da banda
+    const isNomeChanged = newNome !== this.originalNomeBanda;
+    // Atualize o estado do botão de envio com base na comparação
+    this.nomeBandaAlterado = isNomeChanged;
+  }
+
 
   async confirmDelete() {
     const alert = await this.alertController.create({
@@ -178,6 +188,23 @@ export class AddEditBandaPage implements OnInit {
           'Musico e seu instrumento adicionados com sucesso', ['Ok',]);
       })
   }
+
+  retirarMusicoInstrumento(index: number) {
+    if (this.musicosInstrumentosBanda && this.musicosInstrumentosBanda[index]) {
+      const musicoinstrumentoId = this.musicosInstrumentosBanda[index].id;
+      const bandaId = this.bandaSelected.id;
+
+      this.musicosInstrumentosBandaService.delete(musicoinstrumentoId, bandaId)
+        .subscribe(response => {
+          this.presentAlert('Sucesso', 'Músico e instrumento removidos',
+            'Músico e seu instrumento foram removidos com sucesso da banda', ['Ok']);
+          this.musicosInstrumentosBanda.splice(index, 1); // Remove o item da lista local após a remoção bem-sucedida.
+        }, error => {
+          console.error('Erro ao remover músico e seu instrumento:', error);
+        });
+    }
+  }
+
 
   atribuirValorSelecionado(event: any) {
     this.musicoinstrumentoSelected = event.detail.value;
