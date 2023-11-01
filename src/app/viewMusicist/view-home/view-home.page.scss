@@ -10,7 +10,6 @@ ion-toolbar {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-
   margin: 40px 10px 0 5px;
 }
 
@@ -89,4 +88,13 @@ ion-card-header {
 ion-card-content,
 ion-card-header {
   text-align: center;
+}
+
+ion-fab-button {
+  width: 50px;
+  height: 50px;
+  --border-color: #000;
+  // --border-style: solid;
+  // --border-width: 3px;
+  --background: var(--ion-color-primary);
 }

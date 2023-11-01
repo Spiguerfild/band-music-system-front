@@ -57,3 +57,12 @@ ion-button {
 .list ion-item {
   margin-bottom: 10px;
 }
+
+ion-fab-button {
+  width: 50px;
+  height: 50px;
+  --border-color: #000;
+  // --border-style: solid;
+  // --border-width: 3px;
+  --background: var(--ion-color-primary);
+}

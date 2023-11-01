@@ -1,12 +1,10 @@
 <ion-content [fullscreen]="true" class="ion-align-items-center ion-justify-content-center">
   <div class="top-header-vld">
-
+    <div style="display: flex; flex-direction: column;">
+      <h5 style="margin: 0;">Olá</h5>
+      <h1 style="margin: 0;"> Líder! </h1>
+    </div>
     <ion-img class="top-img" src="assets/logo-band-music-smile.png"></ion-img>
-
-    <ion-badge class="title-top" slot="start">
-      Olá líder !
-    </ion-badge>
-
   </div>
 
   <ion-grid>
@@ -97,7 +95,7 @@
   </ion-grid>
 
 
-  <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom">
+  <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px;">
     <ion-fab-button>
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>

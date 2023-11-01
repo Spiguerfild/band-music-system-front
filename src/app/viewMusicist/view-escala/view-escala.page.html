@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true" class="ion-text-center page-content">
-  <h1>Escalas</h1>
+  <h1 style="margin-top: 20px;">Escalas</h1>
 
   <ion-item *ngIf="idParam < 0">
     <ion-label position="stacked">INÍCIO</ion-label>
@@ -36,11 +36,11 @@
       </ion-text>
 
 
-      <!-- <ion-icon (click)="toAddEditEscala(escala.id)" slot="end" color="#000" name="pencil"></ion-icon> -->
+      <!-- <ion-icon (click)="toAddEditEscala(escala.id)" slot="end" color="#000" name="pencil-sharp"></ion-icon> -->
     </ion-item>
   </ion-list>
 
-  <ion-fab (click)="backPage('view-home')" slot="fixed" horizontal="end" vertical="bottom">
+  <ion-fab (click)="backPage('view-home')" slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px;">
     <ion-fab-button>
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
