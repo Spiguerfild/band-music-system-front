@@ -11,6 +11,8 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
   providers: [DatePipe],
 })
 export class ViewEscalaPage implements OnInit {
+
+
   today = new Date()
   dataInicio!: string;
   dataFim!: string;
@@ -117,4 +119,6 @@ export class ViewEscalaPage implements OnInit {
   backPage(rota: string) { // função que volta pra uma pagina especifica
     this.router.navigate([`/${rota}`])
   }
+
+
 }

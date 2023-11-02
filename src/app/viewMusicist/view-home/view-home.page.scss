@@ -11,6 +11,7 @@ ion-toolbar {
   align-items: flex-end;
   justify-content: space-around;
   margin: 40px 10px 0 5px;
+  gap: 30px;
 }
 
 .top-img {
@@ -60,7 +61,7 @@ h4 {
 /* Considerar refatorar regras semelhantes para manter o código mais limpo. */
 ion-card {
   background-color: #fff;
-  width: 240px;
+  width: 90%;
   height: 130px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
