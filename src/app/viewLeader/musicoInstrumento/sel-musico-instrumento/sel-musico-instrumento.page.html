@@ -1,16 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Musico e Instrumento</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <h1 style="margin-top: 30px;">Musico toca</h1>
+
   <ion-list lines="full">
     <ion-item *ngFor="let musicoIns of musicosInstrumentos; let i = index">
       <div>
         <ion-label>{{musicoIns.musico.nome}} - {{musicoIns.instrumento.nome}}</ion-label>
       </div>
-      <ion-icon (click)="toAddEditMusicoIns(musicoIns.id)" slot="end" color="#000" name="pencil-sharp-sharp"></ion-icon>
+      <ion-icon (click)="toAddEditMusicoIns(musicoIns.id)" slot="end" color="#000000" name="pencil-sharp"></ion-icon>
     </ion-item>
   </ion-list>
 

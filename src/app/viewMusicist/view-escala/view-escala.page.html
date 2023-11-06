@@ -22,7 +22,7 @@
     <h6>D.Sem</h6>
   </div>
   <ion-list lines="full">
-    <ion-item button *ngFor="let escala of filteredEscalas; let i = index">
+    <ion-item (click)="abrirModal(escala)" button *ngFor="let escala of filteredEscalas; let i = index">
       <!-- <div slot="start"> -->
       <ion-text style="text-align: start;" class="val-one ">{{escala.banda.nome}}</ion-text>
       <!-- </div> -->
@@ -44,9 +44,41 @@
     </ion-fab-button>
   </ion-fab>
 
-
-
-  <!--MODALLLLLLLLLLLLLLLLLlllllllllllllllllllllllllllllllllllllllllllllllllllllll-->
-
-
 </ion-content>
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <h1 style="font-size: 38px;">Detalhes</h1>
+        <ion-buttons slot="end">
+          <ion-button color="primary" fill="solid" (click)="fecharModal()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div style="margin-top: 40px;" class="modal-content">
+        <ion-note class="modal-title">{{ selectedEscala.banda.nome }}</ion-note>
+        <ion-note class="modal-date">{{ selectedEscala.data[2] }}/{{ selectedEscala.data[1] }}/{{ selectedEscala.data[0]
+          }}</ion-note>
+        <h6 style="margin-top: 55px;">Músicos</h6>
+
+        <ion-list lines="full" style="width: 100%; text-align: center; padding: 0;">
+          <ion-item *ngFor="let item of musicosInstrumentos">
+            <ion-label style="text-align: center;">
+              {{ item.musico.nome }}
+            </ion-label>
+            <ion-label style="text-align: center;">
+              {{ item.instrumento.nome }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <h6 style="margin-top: 55px;">Musicas</h6>
+
+      </div>
+
+    </ion-content>
+
+  </ng-template>
+</ion-modal>

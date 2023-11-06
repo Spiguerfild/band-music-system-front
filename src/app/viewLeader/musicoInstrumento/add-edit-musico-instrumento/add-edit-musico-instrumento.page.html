@@ -1,10 +1,6 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Musico instrumento</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <h2 style="margin-top: 30px; color: #000; ">Cadastrar/Alterar</h2>
+
   <form #form="ngForm" [formGroup]="musicoInstrumentoForm" *ngIf="musicoInstrumentoForm" (ngSubmit)="submit()">
 
 
@@ -19,9 +15,7 @@
       <small class="error-message" *ngIf="musicoInstrumentoForm?.get('musico')?.hasError('required') && form.submitted">
         Selecione uma equipe
       </small>
-
     </ion-list>
-
 
 
 
@@ -46,13 +40,12 @@
 
 
 
-    <ion-button expand="block" [disabled]="!changeBtn" type="submit">
+    <ion-button style="margin-top: 30px;" expand="block" [disabled]="!changeBtn" type="submit">
       {{nomeBtn}}
     </ion-button>
   </form>
 
-  <ion-fab (click)="backPage('sel-musico-instrumento')" slot="fixed" horizontal="end" vertical="bottom"
-    style="bottom: 30px;">
+  <ion-fab (click)="backPage('sel-musico-instrumento')" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button>
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
@@ -73,8 +66,7 @@
         </div>
 
 
-        <ion-fab (click)="backPage('sel-musico-instrumento')" slot="fixed" horizontal="end" vertical="bottom"
-          style="bottom: 30px;">
+        <ion-fab (click)="backPage('sel-musico-instrumento')" slot="fixed" horizontal="end" vertical="bottom">
           <ion-fab-button>
             <!-- <ion-icon size="large" src="assets/back-btn.svg"></ion-icon> -->
             voltar

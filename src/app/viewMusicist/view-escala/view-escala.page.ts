@@ -1,7 +1,12 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { MusicoInstrumentoDTO } from 'src/app/models/MusicoInstrumentoDTO';
 import { NoiteDeApresentacaoDTO } from 'src/app/models/NoiteDeApresentacaoDTO';
+import { MusicosInstrumentosBandaDTO } from 'src/app/models/musicosInstrumentosBandaDTO';
+import { musicoInstrumentoService } from 'src/app/services/domain/musicoInstrumento.service';
+import { MusicosInstrumentosBandaService } from 'src/app/services/domain/musicosInstrumentosBanda.service';
 import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApresentacao.service';
 
 @Component({
@@ -19,12 +24,14 @@ export class ViewEscalaPage implements OnInit {
   escalas: NoiteDeApresentacaoDTO[] = [];
   filteredEscalas: NoiteDeApresentacaoDTO[] = [];
   idParam: number = Number(this.route.snapshot.paramMap.get('id'));
-
+  isModalOpen = false; // Variável para controlar o estado do modal
+  selectedEscala!: NoiteDeApresentacaoDTO;
+  musicosInstrumentos!: MusicosInstrumentosBandaDTO[];
   constructor(
     private escalaService: noiteDeApresentacaoService,
     private router: Router,
     private route: ActivatedRoute,
-    private datePipe: DatePipe
+    private musicoInstrumentoBandaService: MusicosInstrumentosBandaService,
   ) { }
 
 
@@ -82,21 +89,7 @@ export class ViewEscalaPage implements OnInit {
     return diasDaSemana[data.getDay()];
   }
 
-  // filterData() {
-  //   if (this.dataInicio && this.dataFim) {
-  //     this.filteredEscalas = this.escalas.filter((escala) => {
-  //       const dataEscala = new Date(escala.data[0], escala.data[1] - 1, escala.data[2]);
-  //       //parseDate transforma o resoltuado pego em um objeto do tipo date mudando para Y/M/d
-  //       const dataInicio = this.dataInicio
-  //       const dataFim = this.dataFim
 
-  //       return dataEscala >= dataInicio && dataEscala <= dataFim;
-  //     });
-  //   } else {
-  //     // Se os campos de data estiverem vazios, liste todas as escalas
-  //     this.filteredEscalas = this.escalas;
-  //   }
-  // }
   filterData() {
     if (this.dataInicio && this.dataFim) {
       const dataInicioObj = this.parseDate(this.dataInicio);
@@ -120,5 +113,21 @@ export class ViewEscalaPage implements OnInit {
     this.router.navigate([`/${rota}`])
   }
 
+  abrirModal(escala: NoiteDeApresentacaoDTO) {
+    this.musicoInstrumentoBandaService.findAll(escala.banda.id)
+      .subscribe(response => {
+        this.musicosInstrumentos = response;
+        console.log(response);
+      }, error => {
+        console.log(error);
+      });
+
+    this.selectedEscala = escala;
+    this.isModalOpen = true;
+  }
+
+  fecharModal() {
+    this.isModalOpen = false;
+  }
 
 }

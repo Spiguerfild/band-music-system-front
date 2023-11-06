@@ -19,7 +19,8 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 0 16px;
+  margin-top: 20px;
 }
 
 ion-text {
@@ -38,4 +39,31 @@ ion-fab-button {
   // --border-style: solid;
   // --border-width: 3px;
   --background: var(--ion-color-primary);
+}
+
+//modal
+/* No seu arquivo .css ou .scss */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  margin-top: 20px;
+  height: 100%;
+  /* Isso garante que o conteúdo ocupe a altura total do modal. */
+}
+
+.modal-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #000;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.185);
+  /* Adicione espaço entre o título e a data. */
+}
+
+.modal-date {
+  font-size: 22px;
+  text-align: center;
 }

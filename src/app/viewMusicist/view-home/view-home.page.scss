@@ -15,8 +15,8 @@ ion-toolbar {
 }
 
 .top-img {
-  width: 70px;
-  height: 70px;
+  width: 82px;
+  height: 82px;
 
 }
 
@@ -38,7 +38,7 @@ ion-icon {
 h4 {
   font-family: 'Archivo', sans-serif;
   color: #000;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 
@@ -46,7 +46,7 @@ h4 {
   background: var(--ion-color-primary-grad);
   // background: none;
   // font-family: 'Archivo', sans-serif;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 500;
   margin-top: 10px;
   padding: 10px;
@@ -66,14 +66,7 @@ ion-card {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: transform 0.2s ease-in-out;
-  // margin-bottom: 8px;
-  // margin-top: 20px;
 
-  // &:hover {
-  //   transform: scale(0.9);
-  //   background: var(--ion-color-warning);
-  //   transition: .3s;
-  // }
 }
 
 .calendarios {
