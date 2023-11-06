@@ -57,18 +57,18 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <div style="margin-top: 40px;" class="modal-content">
+      <div style="margin-top: 40px; align-items: flex-start; padding: 0 20px;" class="modal-content">
         <ion-note class="modal-title">{{ selectedEscala.banda.nome }}</ion-note>
         <ion-note class="modal-date">{{ selectedEscala.data[2] }}/{{ selectedEscala.data[1] }}/{{ selectedEscala.data[0]
           }}</ion-note>
         <h6 style="margin-top: 55px;">Músicos</h6>
 
-        <ion-list lines="full" style="width: 100%; text-align: center; padding: 0;">
+        <ion-list lines="none" style="width: 100%; text-align: center; padding: 0;position: relative; left: -15px;">
           <ion-item *ngFor="let item of musicosInstrumentos">
-            <ion-label style="text-align: center;">
+            <ion-label style=" color: #666666;">
               {{ item.musico.nome }}
             </ion-label>
-            <ion-label style="text-align: center;">
+            <ion-label style="text-align: end;color: #666666;">
               {{ item.instrumento.nome }}
             </ion-label>
           </ion-item>
