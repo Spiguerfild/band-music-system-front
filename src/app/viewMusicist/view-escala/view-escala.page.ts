@@ -123,6 +123,7 @@ export class ViewEscalaPage implements OnInit {
       });
 
     this.selectedEscala = escala;
+    console.log('escalinha->', escala)
     this.isModalOpen = true;
   }
 
