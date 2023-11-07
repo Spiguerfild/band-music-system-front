@@ -3,8 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { BandaDTO } from 'src/app/models/BandaDTO';
+import { MusicaDTO } from 'src/app/models/MusicaDTO';
 import { NoiteDeApresentacaoDTO } from 'src/app/models/NoiteDeApresentacaoDTO';
 import { bandaService } from 'src/app/services/domain/banda.service';
+import { MusicaDaNoiteService } from 'src/app/services/domain/musicaDaNoite.service';
 import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApresentacao.service';
 
 @Component({
@@ -20,9 +22,12 @@ export class AddEditEscalaPage implements OnInit {
   modoEdit = false;
   obj!: BandaDTO;
   today = new Date();
+  musicaSelected!: MusicaDTO;
+  noiteSelected!: NoiteDeApresentacaoDTO;
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public escalaService: noiteDeApresentacaoService,
+    public musicaDaNoiteService: MusicaDaNoiteService,
     public bandaService: bandaService,
     private alertController: AlertController,
     private router: Router,
@@ -30,6 +35,11 @@ export class AddEditEscalaPage implements OnInit {
   ) { }
 
   ionViewDidEnter() {
+    const id: number = Number(this.route.snapshot.paramMap.get('id'));
+    this.bandaService.findById(id).subscribe(response => {
+      this.bandaSelected = response; // daqui em diante continue
+    });
+
     this.bandaService.findAll()
       .subscribe(response => {
         this.bandas = response;
@@ -171,4 +181,39 @@ export class AddEditEscalaPage implements OnInit {
 
     return dataFormatada;
   }
+
+
+  colocarMusicoInstrumento() {
+    if (this.musicaSelected === undefined) {
+      return;
+    }
+    console.log(this.musicaSelected)
+    this.musicaDaNoiteService.insert(this.musicaSelected.id, this.bandaSelected.id)
+      .subscribe(response => {
+        this.presentAlert('Sucesso', 'Escala alterada',
+          'Musico e seu instrumento adicionados com sucesso', ['Ok',]);
+      })
+  }
+
+  retirarMusicoInstrumento(index: number) {
+    if (this.musicosInstrumentosBanda && this.musicosInstrumentosBanda[index]) {
+      const musicoinstrumentoId = this.musicosInstrumentosBanda[index].id;
+      const bandaId = this.bandaSelected.id;
+
+      this.musicaDaNoiteService.delete(musicoinstrumentoId, bandaId)
+        .subscribe(response => {
+          this.presentAlert('Sucesso', 'Músico e instrumento removidos',
+            'Músico e seu instrumento foram removidos com sucesso da banda', ['Ok']);
+          this.musicosInstrumentosBanda.splice(index, 1); // Remove o item da lista local após a remoção bem-sucedida.
+        }, error => {
+          console.error('Erro ao remover músico e seu instrumento:', error);
+        });
+    }
+  }
+
+
+  atribuirValorSelecionado(event: any) {
+    this.musicoinstrumentoSelected = event.detail.value;
+  }
+
 }
