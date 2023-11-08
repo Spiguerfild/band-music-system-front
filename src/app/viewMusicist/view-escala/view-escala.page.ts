@@ -2,9 +2,11 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { MusicaDTO } from 'src/app/models/MusicaDTO';
 import { MusicoInstrumentoDTO } from 'src/app/models/MusicoInstrumentoDTO';
 import { NoiteDeApresentacaoDTO } from 'src/app/models/NoiteDeApresentacaoDTO';
 import { MusicosInstrumentosBandaDTO } from 'src/app/models/musicosInstrumentosBandaDTO';
+import { MusicaDaNoiteService } from 'src/app/services/domain/musicaDaNoite.service';
 import { musicoInstrumentoService } from 'src/app/services/domain/musicoInstrumento.service';
 import { MusicosInstrumentosBandaService } from 'src/app/services/domain/musicosInstrumentosBanda.service';
 import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApresentacao.service';
@@ -27,11 +29,13 @@ export class ViewEscalaPage implements OnInit {
   isModalOpen = false; // Variável para controlar o estado do modal
   selectedEscala!: NoiteDeApresentacaoDTO;
   musicosInstrumentos!: MusicosInstrumentosBandaDTO[];
+  musicas!: MusicaDTO[];
   constructor(
     private escalaService: noiteDeApresentacaoService,
     private router: Router,
     private route: ActivatedRoute,
     private musicoInstrumentoBandaService: MusicosInstrumentosBandaService,
+    private musicasDaNoiteService: MusicaDaNoiteService,
   ) { }
 
 
@@ -117,6 +121,14 @@ export class ViewEscalaPage implements OnInit {
     this.musicoInstrumentoBandaService.findAll(escala.banda.id)
       .subscribe(response => {
         this.musicosInstrumentos = response;
+        console.log(response);
+      }, error => {
+        console.log(error);
+      });
+
+    this.musicasDaNoiteService.findAll(escala.id)
+      .subscribe(response => {
+        this.musicas = response;
         console.log(response);
       }, error => {
         console.log(error);

@@ -80,7 +80,15 @@
         </ion-list>
 
         <h6 style="margin-top: 55px;">Musicas</h6>
-
+        <ion-list lines="none" style="width: 100%; text-align: center; padding: 0;position: relative; left: -15px;">
+          <ion-item *ngFor="let music of musicas">
+            <div>
+              <ion-label style="text-align: start; color: #000;">{{music.nome}}</ion-label>
+              <ion-label style="text-align: start; font-size: 12px;color: #666666;"
+                class="autor">{{music.autor}}</ion-label>
+            </div>
+          </ion-item>
+        </ion-list>
       </div>
 
     </ion-content>

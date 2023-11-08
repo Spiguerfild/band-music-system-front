@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { API_CONFIG } from "src/app/config/api.config";
+import { MusicaDTO } from "src/app/models/MusicaDTO";
 import { MusicasDaNoiteDTO } from "src/app/models/musicasDaNoiteDTO";
 
 
@@ -13,8 +14,8 @@ export class MusicaDaNoiteService {
 
   }
 
-  findAll(noiteId: number): Observable<MusicasDaNoiteDTO[]> {
-    return this.http.get<MusicasDaNoiteDTO[]>(`${API_CONFIG.baseUrl}/noitesdeapresentacao/${noiteId}/musicas`);
+  findAll(noiteId: number): Observable<MusicaDTO[]> {
+    return this.http.get<MusicaDTO[]>(`${API_CONFIG.baseUrl}/noitesdeapresentacao/${noiteId}/musicas`);
   }
   // findById(id: number): Observable<MusicosInstrumentosBandaDTO> {
   //   return this.http.get<MusicosInstrumentosBandaDTO>(`${API_CONFIG.baseUrl}/musicosinstrumentos/${id}`);

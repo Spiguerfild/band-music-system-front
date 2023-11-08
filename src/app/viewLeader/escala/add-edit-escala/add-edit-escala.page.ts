@@ -17,6 +17,7 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
   styleUrls: ['./add-edit-escala.page.scss'],
 })
 export class AddEditEscalaPage implements OnInit {
+  musicasDaNoite!: MusicaDTO[];
   bandas!: BandaDTO[];
   escalaForm!: FormGroup;
   nomeBtn = '';
@@ -26,7 +27,6 @@ export class AddEditEscalaPage implements OnInit {
   today = new Date();
   musicaSelected!: MusicaDTO;
   noiteSelected!: NoiteDeApresentacaoDTO;
-  musicasDaNoite!: MusicasDaNoiteDTO[];
   musicas!: MusicaDTO[];
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -44,6 +44,14 @@ export class AddEditEscalaPage implements OnInit {
     this.escalaService.findById(id).subscribe(response => {
       this.noiteSelected = response; // daqui em diante continue
     });
+
+    this.musicaDaNoiteService.findAll(id)
+      .subscribe(response => {
+        this.musicasDaNoite = response;
+        console.log('ali->', response)
+      }, error => {
+        console.log('errozin', error);
+      });
 
     this.bandaService.findAll()
       .subscribe(response => {

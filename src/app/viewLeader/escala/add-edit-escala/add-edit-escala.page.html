@@ -7,7 +7,6 @@
 <ion-content [fullscreen]="true">
   <form #form="ngForm" [formGroup]="escalaForm" *ngIf="escalaForm" (ngSubmit)="submit()">
 
-    <!-- <ion-input formControlName="bandaNome" type="text" label="Nome da escala" labelPlacement="floating"></ion-input> -->
     <ion-list>
       <ion-item>
         <ion-label position="stacked">Banda</ion-label>
@@ -22,13 +21,35 @@
     </ion-list>
     <ion-datetime class="custom-input" formControlName="data"></ion-datetime>
 
+    <!---->
+    <ion-list lines="full" style="margin-top: 30px;">
+
+      <ion-item style="text-align: center;" *ngFor="let mu of musicasDaNoite; let i = index">
+
+        <div>
+          <ion-label style="text-align: start;">{{mu.nome}}</ion-label>
+          <ion-label style="text-align: start;" class="autor">{{mu.autor}}</ion-label>
+        </div>
+
+        <ion-button slot="end" fill="clear" (click)="retirarMusicoInstrumento(i)">
+          <ion-icon style="font-size: 25px; color: black;" name="close-circle-outline"></ion-icon>
+        </ion-button>
+
+      </ion-item>
+
+    </ion-list>
+
+    <!---->
+
 
     <div style="display: flex;" *ngIf="modoEdit">
-      <ion-list lines="full" style="width: 95%;">
+      <ion-list lines="full" style="width: 80%;">
         <ion-item>
           <ion-select (ionChange)="atribuirValorSelecionado($event)" placeholder="Musicas">
-            <ion-select-option *ngFor="let musica of musicas" [value]="musica">{{musica.nome}}
-              - {{musica.autor}} </ion-select-option>
+            <ion-select-option *ngFor="let musica of musicas" [value]="musica">
+              <div class="limited-text">{{musica.nome}} - {{musica.autor}}</div>
+            </ion-select-option>
+
           </ion-select>
 
         </ion-item>
@@ -36,8 +57,10 @@
       </ion-list>
 
       <ion-button fill="clear" (click)="colocarMusicoInstrumento()">
-        <ion-icon style="font-size: 37px;" name="checkmark-done-circle-outline"></ion-icon>
+        <ion-icon name="checkmark-done-circle-outline" style="font-size: 32px;"></ion-icon>
       </ion-button>
+
+
     </div>
 
     <ion-button [disabled]="!escalaForm.valid" expand="block" type="submit">
