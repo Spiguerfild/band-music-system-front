@@ -36,9 +36,10 @@ ion-icon {
 
 
 h4 {
-  font-family: 'Archivo', sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
+
 }
 
 
@@ -61,13 +62,65 @@ h4 {
 /* Considerar refatorar regras semelhantes para manter o código mais limpo. */
 ion-card {
   background-color: #fff;
-  width: 90%;
-  height: 130px;
-  border-radius: 10px;
+  // background: linear-gradient(90deg, #fff, #ffde22, #f23);
+  width: 90vw;
+  // height: 130px;
+  padding: 5px;
+  border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: transform 0.2s ease-in-out;
-
+  // font-family: ;
 }
+
+
+
+.anim {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.anim1 {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: fadeInUp1 1.7s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    /* Comece fora da tela */
+    opacity: 0;
+    /* Comece com opacidade 0 */
+  }
+
+  100% {
+    transform: translateY(0);
+    /* No final da animação, mova o card para cima */
+    opacity: 1;
+    /* No final da animação, torne o card visível */
+  }
+}
+
+@keyframes fadeInUp1 {
+  0% {
+    transform: translateY(100%);
+    /* Comece fora da tela */
+    opacity: 0;
+    /* Comece com opacidade 0 */
+  }
+
+  100% {
+    transform: translateY(0);
+    /* No final da animação, mova o card para cima */
+    opacity: 1;
+    /* No final da animação, torne o card visível */
+  }
+}
+
+
+
+
 
 .calendarios {
   width: 50px;

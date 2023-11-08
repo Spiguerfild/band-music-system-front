@@ -10,14 +10,15 @@
 
   <div style="display: flex; flex-direction: column; align-items: center; margin-top: 30px;">
 
-    <ion-card button (click)="toViewEscala(1)">
+    <ion-card class="anim" style=" background: linear-gradient(132deg,  #f8c019, #ff7045);" button
+      (click)="toViewEscala(1)">
       <ion-card-content>
         <ion-icon class="calendarios" src="assets/calendarMenor.svg"></ion-icon>
         <h4>Escala restante do mês</h4>
       </ion-card-content>
     </ion-card>
 
-    <ion-card button (click)="toViewEscala(-1)">
+    <ion-card class="anim1" button (click)="toViewEscala(-1)">
       <ion-card-content>
         <ion-icon class="calendarios" src="assets/calendarMaior.svg"></ion-icon>
         <h4>Escala Geral</h4>
