@@ -23,10 +23,28 @@
     <ion-datetime class="custom-input" formControlName="data"></ion-datetime>
 
 
+    <div style="display: flex;" *ngIf="modoEdit">
+      <ion-list lines="full" style="width: 95%;">
+        <ion-item>
+          <ion-select (ionChange)="atribuirValorSelecionado($event)" placeholder="Musicas">
+            <ion-select-option *ngFor="let musica of musicas" [value]="musica">{{musica.nome}}
+              - {{musica.autor}} </ion-select-option>
+          </ion-select>
+
+        </ion-item>
+
+      </ion-list>
+
+      <ion-button fill="clear" (click)="colocarMusicoInstrumento()">
+        <ion-icon style="font-size: 37px;" name="checkmark-done-circle-outline"></ion-icon>
+      </ion-button>
+    </div>
+
     <ion-button [disabled]="!escalaForm.valid" expand="block" type="submit">
       {{nomeBtn}}
     </ion-button>
   </form>
+
 
   <ion-fab (click)="backPage('sel-escala')" slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px;">
     <ion-fab-button>

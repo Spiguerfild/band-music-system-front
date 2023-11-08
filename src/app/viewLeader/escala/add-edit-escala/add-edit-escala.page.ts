@@ -4,8 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { BandaDTO } from 'src/app/models/BandaDTO';
 import { MusicaDTO } from 'src/app/models/MusicaDTO';
+import { MusicasDaNoiteDTO } from 'src/app/models/musicasDaNoiteDTO';
 import { NoiteDeApresentacaoDTO } from 'src/app/models/NoiteDeApresentacaoDTO';
 import { bandaService } from 'src/app/services/domain/banda.service';
+import { MusicaService } from 'src/app/services/domain/musica.service';
 import { MusicaDaNoiteService } from 'src/app/services/domain/musicaDaNoite.service';
 import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApresentacao.service';
 
@@ -24,10 +26,13 @@ export class AddEditEscalaPage implements OnInit {
   today = new Date();
   musicaSelected!: MusicaDTO;
   noiteSelected!: NoiteDeApresentacaoDTO;
+  musicasDaNoite!: MusicasDaNoiteDTO[];
+  musicas!: MusicaDTO[];
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     public escalaService: noiteDeApresentacaoService,
     public musicaDaNoiteService: MusicaDaNoiteService,
+    public musicaService: MusicaService,
     public bandaService: bandaService,
     private alertController: AlertController,
     private router: Router,
@@ -36,8 +41,8 @@ export class AddEditEscalaPage implements OnInit {
 
   ionViewDidEnter() {
     const id: number = Number(this.route.snapshot.paramMap.get('id'));
-    this.bandaService.findById(id).subscribe(response => {
-      this.bandaSelected = response; // daqui em diante continue
+    this.escalaService.findById(id).subscribe(response => {
+      this.noiteSelected = response; // daqui em diante continue
     });
 
     this.bandaService.findAll()
@@ -46,6 +51,15 @@ export class AddEditEscalaPage implements OnInit {
         console.log(response);
       }, error => {
         console.log(error);
+      });
+
+    this.musicaService.findAll()
+      .subscribe(response => {
+        this.musicas = response;
+
+        console.log('musicosInstrumwdwdentosBanda:', response); // Add this line
+      }, error => {
+        console.log('errozin', error);
       });
   }
 
@@ -188,23 +202,23 @@ export class AddEditEscalaPage implements OnInit {
       return;
     }
     console.log(this.musicaSelected)
-    this.musicaDaNoiteService.insert(this.musicaSelected.id, this.bandaSelected.id)
+    this.musicaDaNoiteService.insert(this.musicaSelected.id, this.noiteSelected.id)
       .subscribe(response => {
         this.presentAlert('Sucesso', 'Escala alterada',
-          'Musico e seu instrumento adicionados com sucesso', ['Ok',]);
+          'Musica inserida com sucesso', ['Ok',]);
       })
   }
 
   retirarMusicoInstrumento(index: number) {
-    if (this.musicosInstrumentosBanda && this.musicosInstrumentosBanda[index]) {
-      const musicoinstrumentoId = this.musicosInstrumentosBanda[index].id;
-      const bandaId = this.bandaSelected.id;
+    if (this.musicasDaNoite && this.musicasDaNoite[index]) {
+      const musicoinstrumentoId = this.musicasDaNoite[index].id;
+      const bandaId = this.noiteSelected.id;
 
       this.musicaDaNoiteService.delete(musicoinstrumentoId, bandaId)
         .subscribe(response => {
           this.presentAlert('Sucesso', 'Músico e instrumento removidos',
-            'Músico e seu instrumento foram removidos com sucesso da banda', ['Ok']);
-          this.musicosInstrumentosBanda.splice(index, 1); // Remove o item da lista local após a remoção bem-sucedida.
+            'Música foi removida da noite com sucesso da banda', ['Ok']);
+          this.musicasDaNoite.splice(index, 1); // Remove o item da lista local após a remoção bem-sucedida.
         }, error => {
           console.error('Erro ao remover músico e seu instrumento:', error);
         });
@@ -213,7 +227,7 @@ export class AddEditEscalaPage implements OnInit {
 
 
   atribuirValorSelecionado(event: any) {
-    this.musicoinstrumentoSelected = event.detail.value;
+    this.musicaSelected = event.detail.value;
   }
 
 }
