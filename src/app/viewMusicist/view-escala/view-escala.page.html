@@ -21,7 +21,7 @@
     <h6>Data</h6>
     <h6>D.Sem</h6>
   </div>
-  <ion-list lines="full">
+  <ion-list style="margin-bottom: 80px;" lines="full">
     <ion-item (click)="abrirModal(escala)" button *ngFor="let escala of filteredEscalas; let i = index">
       <!-- <div slot="start"> -->
       <ion-text style="text-align: start;" class="val-one ">{{escala.banda.nome}}</ion-text>
@@ -37,6 +37,7 @@
 
     </ion-item>
   </ion-list>
+
 
   <ion-fab (click)="backPage('view-home')" slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px;">
     <ion-fab-button>
@@ -80,7 +81,8 @@
         </ion-list>
 
         <h6 style="margin-top: 55px;">Musicas</h6>
-        <ion-list lines="none" style="width: 100%; text-align: center; padding: 0;position: relative; left: -15px;">
+        <ion-list lines="none"
+          style="width: 100%; text-align: center; padding: 0;position: relative; left: -15px; margin-bottom: 60px;">
           <ion-item *ngFor="let music of musicas">
             <div>
               <ion-label style="text-align: start; color: #000;">{{music.nome}}</ion-label>
