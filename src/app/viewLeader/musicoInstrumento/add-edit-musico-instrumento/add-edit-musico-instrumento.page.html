@@ -1,5 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> {{nomeBtn}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
 <ion-content [fullscreen]="true">
-  <h2 style="margin-top: 30px; color: #000; ">Cadastrar/Alterar</h2>
+
 
   <form #form="ngForm" [formGroup]="musicoInstrumentoForm" *ngIf="musicoInstrumentoForm" (ngSubmit)="submit()">
 
