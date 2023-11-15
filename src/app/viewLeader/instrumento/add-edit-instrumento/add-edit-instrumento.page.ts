@@ -90,7 +90,7 @@ export class AddEditInstrumentoPage implements OnInit {
               () => {
                 // instrumento excluída com sucesso, você pode redirecionar para uma página diferente
                 // ou realizar alguma ação específica após a exclusão.
-                console.log('instrumento excluída com sucesso.');
+                console.log('instrumento excluído com sucesso.');
                 this.router.navigate(['/sel-instrumento']);
               },
               (error) => {

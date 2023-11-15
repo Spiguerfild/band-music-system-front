@@ -183,7 +183,7 @@ export class AddEditEscalaPage implements OnInit {
     });
 
     await alert.present();
-    this.router.navigate(['leader-home'])
+    this.router.navigate(['sel-escala'])
   }
 
   backPage(rota: string) { // função que volta pra uma pagina especifica
@@ -205,7 +205,7 @@ export class AddEditEscalaPage implements OnInit {
   }
 
 
-  colocarMusicoInstrumento() {
+  colocarMusica() {
     if (this.musicaSelected === undefined) {
       return;
     }

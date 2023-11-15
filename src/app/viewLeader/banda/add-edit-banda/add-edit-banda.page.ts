@@ -54,8 +54,6 @@ export class AddEditBandaPage implements OnInit {
     this.musicosInstrumentosService.findAll()
       .subscribe(response => {
         this.musicosInstrumentos = response;
-
-        console.log('musicosInstrumwdwdentosBanda:', response); // Add this line
       }, error => {
         console.log('errozin', error);
       });
@@ -184,7 +182,7 @@ export class AddEditBandaPage implements OnInit {
     console.log(this.musicoinstrumentoSelected)
     this.musicosInstrumentosBandaService.insert(this.musicoinstrumentoSelected.id, this.bandaSelected.id)
       .subscribe(response => {
-        this.presentAlert('Sucesso', 'Escala alterada',
+        this.presentAlert('Sucesso', 'Banda alterada',
           'Musico e seu instrumento adicionados com sucesso', ['Ok',]);
       })
   }

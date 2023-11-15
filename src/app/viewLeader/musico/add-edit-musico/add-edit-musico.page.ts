@@ -56,13 +56,13 @@ export class AddEditMusicoPage implements OnInit {
     if (this.cadOrAlt) {
       this.musicoService.update(id, this.musicoForm.value)
         .subscribe(response => {
-          this.presentAlert('Sucesso', 'Musico alterada',
+          this.presentAlert('Sucesso', 'Musico alterado',
             'Os dados foram alterados com sucesso', ['Ok',]);
         })
     } else {
       this.musicoService.insert(this.musicoForm.value)
         .subscribe(response => {
-          this.presentAlert('Sucesso', 'Musico salva',
+          this.presentAlert('Sucesso', 'Musico salvo',
             'Os dados foram salvos com sucesso', ['Ok',]);
         })
     }
