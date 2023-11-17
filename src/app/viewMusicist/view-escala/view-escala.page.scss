@@ -6,6 +6,8 @@ h1 {
   text-align: center;
   font-size: 55px;
   font-family: 'Roboto Flex', sans-serif;
+  color: #000;
+
 }
 
 h6 {
@@ -76,4 +78,29 @@ ion-fab-button {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: #666666af;
   margin-top: 5px;
+}
+
+//animação filtros
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adicione uma animação suave */
+.filter-animation {
+  animation: fadeInOut 0.4s ease;
+}
+
+ion-fab-button.active {
+  transform: rotate(45deg);
+  transition: transform .1s ease;
+  animation: fadeInOut 0.5s ease;
 }

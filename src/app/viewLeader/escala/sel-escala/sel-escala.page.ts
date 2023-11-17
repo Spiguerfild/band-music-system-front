@@ -9,6 +9,7 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
   styleUrls: ['./sel-escala.page.scss'],
 })
 export class SelEscalaPage {
+  showFilters = false;
   dataInicio: string = ''; // Data de início
   dataFim: string = ''; // Data de fim
   escalas: NoiteDeApresentacaoDTO[] = [];
@@ -47,6 +48,7 @@ export class SelEscalaPage {
         console.log('dataEscala', dataEscala, '--dataInicio', dataInicio, 'dataFim---', dataFim)
         return dataEscala >= dataInicio && dataEscala <= dataFim;
       });
+      this.showFilters = false;
     } else {
       // Se os campos de data estiverem vazios, liste todas as escalas
       this.filteredEscalas = this.escalas;

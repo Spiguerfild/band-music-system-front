@@ -6,6 +6,9 @@
   justify-content: space-around;
   margin: 30px 10px 0 5px;
   gap: 20px;
+  border-radius: 17px;
+  padding-bottom: 4px;
+  border-bottom: 3px groove #f56b3f;
 }
 
 h1 {
@@ -40,12 +43,14 @@ h5 {
 
 .vertical-center {
   text-align: center;
-  // padding-top: 70px;
+
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+
 }
 
 ion-fab-button {
@@ -70,16 +75,11 @@ ion-grid {
   margin-top: 20px;
 }
 
+
 ion-card {
   text-align: center;
   background-color: #fff;
-  border-radius: 8px;
-
-  &:hover {
-    transform: scale(0.9);
-    background: var(--ion-color-warning);
-    transition: .5s;
-  }
+  border-radius: 5px;
 }
 
 ion-card-content {

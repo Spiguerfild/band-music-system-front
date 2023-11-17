@@ -5,19 +5,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-text-center page-content">
-  <ion-item>
-    <ion-label position="stacked">INÍCIO</ion-label>
-    <ion-input [(ngModel)]="dataInicio" type="text" placeholder="Data início (DD/MM/AAAA)"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position="stacked">FIM</ion-label>
-    <ion-input [(ngModel)]="dataFim" type="text" placeholder="Data fim (DD/MM/AAAA)"></ion-input>
-  </ion-item>
+  <ion-fab class="{{showFilters ? 'active' : ''}}" slot="fixed" slot="fixed" vertical="top" horizontal="end"
+    [edge]="true" (click)="showFilters = !showFilters">
+    <ion-fab-button>
+      <ion-icon class="icon-animation" [name]="showFilters ? 'close' : 'chevron-down-circle'"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-  <ion-button shape="round" (click)="applyDateFilter()">
-    <ion-icon slot="start" name="search-outline"></ion-icon> Filtrar
-  </ion-button>
+  <div *ngIf="showFilters" class="filter-container filter-animation"
+    style="padding: 10px 0 5px 0; box-shadow: 0px 2px 7px #ccc; background-color: #ececec; position: fixed; z-index: 9999;">
+
+    <div style="display: flex; align-items: center; justify-content: space-around;">
+      <ion-item style="width: 40%; --ion-safe-area-left: none; --padding-start: none">
+        <ion-label position="stacked" style="font-size: 20px;">Início</ion-label>
+        <ion-input [(ngModel)]="dataInicio" type="text" style="font-size: 12px;" placeholder="DD/MM/AAAA"></ion-input>
+      </ion-item>
+
+      <ion-item style="width: 40%; --ion-safe-area-left:none; --padding-start:none">
+        <ion-label position="stacked" style="font-size: 20px;">Fim</ion-label>
+        <ion-input [(ngModel)]="dataFim" type="text" style="font-size: 12px;" placeholder="DD/MM/AAAA"></ion-input>
+      </ion-item>
+
+    </div>
+
+    <ion-button shape="round" (click)="applyDateFilter()" style=" font-size: 12px;">
+      <ion-icon src="assets/filtro-icon.svg" slot="end" name="search-outline"></ion-icon>
+      Filtrar
+    </ion-button>
+  </div>
 
 
 

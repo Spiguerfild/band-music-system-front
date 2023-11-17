@@ -19,7 +19,7 @@ import { noiteDeApresentacaoService } from 'src/app/services/domain/noiteDeApres
 })
 export class ViewEscalaPage implements OnInit {
 
-
+  showFilters = false;
   today = new Date()
   dataInicio!: string;
   dataFim!: string;
@@ -81,6 +81,7 @@ export class ViewEscalaPage implements OnInit {
 
       return dataAtualEscala >= inicio && dataAtualEscala <= fim;
     });
+    this.showFilters = false;
   }
 
 

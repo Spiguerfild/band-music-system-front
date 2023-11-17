@@ -41,7 +41,7 @@ ion-button.shape-round {
 }
 
 ion-button {
-  width: 70%;
+  width: 45%;
 }
 
 /* Adicione estilos personalizados à sua página */
@@ -65,4 +65,29 @@ ion-fab-button {
   // --border-style: solid;
   // --border-width: 3px;
   --background: var(--ion-color-primary);
+}
+
+// anmações filtro
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adicione uma animação suave */
+.filter-animation {
+  animation: fadeInOut 0.4s ease;
+}
+
+ion-fab-button.active {
+  transform: rotate(45deg);
+  transition: transform .1s ease;
+  animation: fadeInOut 0.5s ease;
 }
