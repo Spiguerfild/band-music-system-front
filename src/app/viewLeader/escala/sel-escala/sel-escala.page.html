@@ -1,5 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <div class="menu-header-bg"></div>
     <ion-title>Escalas</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +15,7 @@
   </ion-fab>
 
   <div *ngIf="showFilters" class="filter-container filter-animation"
-    style="padding: 10px 0 5px 0; box-shadow: 0px 2px 7px #ccc; background-color: #ececec; position: fixed; z-index: 9999;">
+    style="padding: 10px 0 5px 0; box-shadow: 0px 2px 7px #ccc; background-color: var( --ion-background-color); position: fixed; z-index: 9999;">
 
     <div style="display: flex; align-items: center; justify-content: space-around;">
       <ion-item style="width: 40%; --ion-safe-area-left: none; --padding-start: none">

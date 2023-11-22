@@ -1,3 +1,21 @@
+.menu-header-bg {
+  position: absolute;
+  height: 150px;
+  width: 361px;
+  background: linear-gradient(-90deg, #FBBF00 0%, #FFA900 100%);
+  background: var(--ion-color-primary-grad);
+
+  box-shadow: 0px 1px 10px rgba(140, 131, 3, 0.5);
+  margin-bottom: 60px;
+  transform: rotate(153deg);
+
+}
+
+ion-title {
+  font-size: larger;
+  font-family: 'Roboto Flex';
+}
+
 ion-fab-button {
   width: 50px;
   height: 50px;
