@@ -1,14 +1,31 @@
 @import '../../../theme/variables.scss';
 
+
+
+.menu-header-bg {
+  position: absolute;
+  height: 130px;
+  width: 277px;
+  background: linear-gradient(-90deg, #FBBF00 0%, #FFA900 100%);
+  background: var(--ion-color-primary-grad);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 60px;
+  // transform: rotate(153deg);
+
+}
+
+
 .top-header-vld {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
-  margin: 30px 10px 0 5px;
+  margin: 30px 0;
   gap: 20px;
-  border-radius: 17px;
   padding-bottom: 4px;
-  border-bottom: 3px groove #f56b3f;
+  // background: linear-gradient(-250deg, #FBBF00 0%, #FFA900 100%);
+  // box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+
+  // border-bottom: 3px groove #f56b3f;
 }
 
 h1 {
