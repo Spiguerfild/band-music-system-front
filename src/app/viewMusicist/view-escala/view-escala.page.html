@@ -60,8 +60,8 @@
       <ion-text style="text-align: start;" class="val-one ">{{escala.banda.nome}}</ion-text>
       <!-- </div> -->
       <ion-text class="val-one">
-        {{escala.data[2]}}/{{escala.data[1]}}/{{escala.data[0]}}
-        <!-- {{escala.data[1]}}/{{escala.data[0]}} -->
+        {{escala.data[2]}}/{{escala.data[1]}}{{ idParam < 0 ? '/' + escala.data[0] : '' }} <!--
+          {{escala.data[1]}}/{{escala.data[0]}} -->
       </ion-text>
       <ion-text style="text-align: end;" class="val-one">
         {{getDiaDaSemana(parseDate(escala.data[2] + '/' +
