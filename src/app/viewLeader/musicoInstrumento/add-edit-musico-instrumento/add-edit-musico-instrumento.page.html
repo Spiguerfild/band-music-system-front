@@ -87,3 +87,8 @@
 
 
 </ion-content>
+<ion-footer *ngIf="modoEdit">
+  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+    Deletar Musico Instrumento
+  </ion-button>
+</ion-footer>
