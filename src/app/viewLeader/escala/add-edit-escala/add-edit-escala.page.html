@@ -23,8 +23,7 @@
     <ion-datetime class="custom-input" formControlName="data"></ion-datetime>
 
     <!---->
-    <ion-list lines="full" style="margin-top: 30px;">
-
+    <ion-list lines="full" style="margin-top: 10px;">
       <ion-item style="text-align: center;" *ngFor="let mu of musicasDaNoite; let i = index">
 
         <div>
@@ -43,7 +42,7 @@
     <!---->
 
 
-    <div style="display: flex;" *ngIf="modoEdit">
+    <div style="display: flex; margin-bottom: 100px;" *ngIf="modoEdit">
       <ion-list lines="full" style="width: 80%;">
         <ion-item>
           <ion-select (ionChange)="atribuirValorSelecionado($event)" placeholder="Musicas">
@@ -64,8 +63,9 @@
 
     </div>
 
-    <ion-button [disabled]="!escalaForm.valid" expand="block" type="submit">
-      {{nomeBtn}}
+    <ion-button style="position: fixed; bottom: 45px; width: 100vw;" [disabled]="!escalaForm.valid" expand="block"
+      type="submit">
+      {{nomeBtn}} escala
     </ion-button>
   </form>
 
@@ -76,8 +76,8 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-button style="margin-top: 50px;" *ngIf="modoEdit" class="del-btn" color="danger" (click)="confirmDelete()"
-    expand="block">
+  <ion-button [disabled]="!modoEdit" style="position: fixed;bottom: 0; width: 100vw;" class="del-btn" color="danger"
+    (click)="confirmDelete()" expand="block">
     Deletar Escala
   </ion-button>
 </ion-content>

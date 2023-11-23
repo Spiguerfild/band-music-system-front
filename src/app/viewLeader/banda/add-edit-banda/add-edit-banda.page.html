@@ -24,7 +24,7 @@
     </ion-item>
 
 
-    <ion-list lines="full" style="margin-top: 30px;">
+    <ion-list lines="full" style="margin-top: 10px;">
 
       <ion-item style="text-align: center;" *ngFor="let musicoinstrumento of musicosInstrumentosBanda; let i = index">
         <ion-label style="text-align: start;">{{musicoinstrumento.musico.nome}} </ion-label>
@@ -37,7 +37,7 @@
 
     </ion-list>
 
-    <div style="display: flex;" *ngIf="modoEdit">
+    <div style="display: flex; margin-bottom: 100px;" *ngIf="modoEdit">
       <ion-list lines="full" style="width: 95%;">
         <ion-item>
           <ion-select (ionChange)="atribuirValorSelecionado($event)" placeholder="Musico - Instrumento">
@@ -55,8 +55,9 @@
       </ion-button>
     </div>
 
-    <ion-button style="margin-top: 10px;" expand="block" type="submit" [disabled]="!nomeBandaAlterado">
-      {{nomeBtn}} nome da banda
+    <ion-button style="position: fixed; bottom: 45px; width: 100vw;" expand="block" type="submit"
+      [disabled]="!nomeBandaAlterado">
+      {{nomeBtn}} banda
     </ion-button>
   </form>
 
@@ -66,8 +67,8 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-button *ngIf="modoEdit" style="margin-top: 10px;" class="del-btn" color="danger" (click)="confirmDelete()"
-    expand="block">
+  <ion-button [disabled]="!modoEdit" style="position: fixed;bottom: 0; width: 100vw;" class="del-btn" color="danger"
+    (click)="confirmDelete()" expand="block">
     Deletar Banda
   </ion-button>
 </ion-content>

@@ -20,19 +20,19 @@
 
 
 
-    <ion-button expand="block" type="submit">
-      {{nomeBtn}}
+    <ion-button style="position: fixed; bottom: 45px; width: 100vw;" expand="block" type="submit">
+      {{nomeBtn}} musico
     </ion-button>
   </form>
+
   <ion-fab (click)="backPage('sel-musico')" slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px;">
     <ion-fab-button style="--border-color: black;--border-width:1px;--border-style: solid">
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
 
-<ion-footer *ngIf="modoEdit">
-  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+  <ion-button [disabled]="!modoEdit" style="position: fixed;bottom: 0; width: 100vw;" class="del-btn" color="danger"
+    (click)="confirmDelete()" expand="block">
     Deletar Musico
   </ion-button>
-</ion-footer>
+</ion-content>

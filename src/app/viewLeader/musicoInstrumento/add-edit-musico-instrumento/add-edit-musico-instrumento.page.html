@@ -45,12 +45,9 @@
 
     </ion-list>
 
-
-
-
-
-    <ion-button style="margin-top: 30px;" expand="block" [disabled]="!changeBtn" type="submit">
-      {{nomeBtn}}
+    <ion-button style="position: fixed; bottom: 45px; width: 100vw;" expand="block" [disabled]="!changeBtn"
+      type="submit">
+      {{nomeBtn}} musico e instr..
     </ion-button>
   </form>
 
@@ -87,9 +84,8 @@
   </ion-modal>
 
 
-</ion-content>
-<ion-footer *ngIf="modoEdit">
-  <ion-button class="del-btn" color="danger" (click)="confirmDelete()" expand="block">
+  <ion-button [disabled]="!modoEdit" style="position: fixed;bottom: 0; width: 100vw;" class="del-btn" color="danger"
+    (click)="confirmDelete()" expand="block">
     Deletar Musico Instrumento
   </ion-button>
-</ion-footer>
+</ion-content>
