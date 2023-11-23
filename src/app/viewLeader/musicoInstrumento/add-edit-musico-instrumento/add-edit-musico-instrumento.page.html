@@ -15,14 +15,15 @@
     <ion-list lines="full">
       <ion-item>
         <ion-label position="stacked">Musico</ion-label>
-        <ion-select (ionChange)="changeSelectBtn()" formControlName="musico" [placeholder]="musicoNome">
+        <ion-select (ionChange)="changeSelectBtn()" formControlName="musico"
+          [placeholder]="musicoNome ? musicoNome : '' ">
           <!--coloca value aqui mas da erro-->
           <ion-select-option *ngFor="let musico of musicos" [value]="musico">{{musico.nome}}</ion-select-option>
         </ion-select>
       </ion-item>
-      <small class="error-message" *ngIf="musicoInstrumentoForm?.get('musico')?.hasError('required') && form.submitted">
-        Selecione uma equipe
-      </small>
+      <!-- <small class="error-message" *ngIf="musicoInstrumentoForm?.get('musico')?.hasError('required') && form.submitted">
+        Selecione um músico
+      </small> -->
     </ion-list>
 
 
@@ -39,7 +40,7 @@
       </ion-item>
       <small class="error-message"
         *ngIf="musicoInstrumentoForm?.get('instrumento')?.hasError('required') && form.submitted">
-        Selecione uma equipe
+        Selecione um instrumento
       </small>
 
     </ion-list>

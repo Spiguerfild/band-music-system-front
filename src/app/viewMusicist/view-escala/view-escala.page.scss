@@ -17,6 +17,19 @@ h6 {
 
 }
 
+.menu-header-bg {
+  position: absolute;
+  height: 200px;
+  width: 361px;
+  background: linear-gradient(-90deg, #FBBF00 0%, #FFA900 100%);
+  background: var(--ion-color-primary-grad);
+  top: -24px;
+  box-shadow: 0px 1px 10px rgba(140, 131, 3, 0.5);
+  margin-bottom: 60px;
+  transform: rotate(153deg);
+
+}
+
 .infos {
   display: flex;
   justify-content: space-between;
