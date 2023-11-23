@@ -21,7 +21,7 @@
 
   <ion-fab *ngIf="idParam < 0" class="{{showFilters ? 'active' : ''}}" slot="fixed" slot="fixed" vertical="top"
     horizontal="end" [edge]="true" (click)="showFilters = !showFilters">
-    <ion-fab-button>
+    <ion-fab-button style="--border-color: black;--border-width:2px;--border-style: solid">
       <ion-icon class="icon-animation" [name]="showFilters ? 'close' : 'chevron-down-circle'"></ion-icon>
     </ion-fab-button>
   </ion-fab>

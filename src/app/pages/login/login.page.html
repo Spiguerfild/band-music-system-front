@@ -1,5 +1,4 @@
 <ion-content [fullscreen]="true">
-
   <ion-text>
     <h1>Login</h1>
   </ion-text>
@@ -11,12 +10,13 @@
 
     <ion-input type="password" label="Senha" labelPlacement="floating"></ion-input>
 
-    <ion-button shape="round" (click)="verificaLogin('bottom')" expand="block">Entrar</ion-button>
+    <ion-button style="--background:var(--ion-color-primary-grad)" shape="round" (click)="verificaLogin('bottom')"
+      expand="block">Entrar</ion-button>
 
   </form>
 
   <ion-fab (click)="backPage('home')" slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px;">
-    <ion-fab-button>
+    <ion-fab-button style="--border-color: black;--border-width:1px;--border-style: solid">
       <ion-icon size="large" src="assets/back-btn.svg"></ion-icon>
     </ion-fab-button>
   </ion-fab>
