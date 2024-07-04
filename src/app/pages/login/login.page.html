@@ -5,12 +5,11 @@
 
   <form (ngSubmit)="submit()">
 
-    <ion-input type="text" label="Usuário" labelPlacement="floating"></ion-input>
+    <ion-input type="text" label="Usuário" labelPlacement="floating" name="usuario" [(ngModel)]="usuario"></ion-input>
 
-    <ion-input type="password" label="Senha" labelPlacement="floating"></ion-input>
+    <ion-input type="password" label="Senha" labelPlacement="floating" name="senha" [(ngModel)]="senha"></ion-input>
 
-    <ion-button style="--background:var(--ion-color-primary-grad)" shape="round" (click)="verificaLogin('bottom')"
-      expand="block">Entrar</ion-button>
+    <ion-button style="--background:var(--ion-color-primary-grad)" shape="round" (click)="verificaLogin('bottom')" expand="block">Entrar</ion-button>
 
   </form>
 
