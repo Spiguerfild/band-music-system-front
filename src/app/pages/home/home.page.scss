@@ -4,6 +4,7 @@
   justify-content: center;
   margin-top: 100px;
   padding-right: 5px;
+  gap:25px;
 }
 
 .header-home-h1 {
@@ -29,7 +30,7 @@ ion-img {
 
 
 ion-footer {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   box-shadow: none;
   padding: 0 15px;
 }
@@ -58,4 +59,25 @@ ion-button {
     text-transform: capitalize;
     color: black;
   }
+
+}
+
+.version-container {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.version-text {
+  font-size: 0.875rem;
+  color: #000;
+  font-family: system-ui;
+  font-weight: 500;
+  padding: 5px 10px;
+  // background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

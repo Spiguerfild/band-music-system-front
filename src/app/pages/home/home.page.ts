@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import packageJson from '../../../../package.json';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  constructor(private router: Router) { }
+  public version: string = packageJson.version;
+  constructor(private router: Router) {}
 
   functionToLogin() {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
   functionToViewHome() {
-    this.router.navigate(['/view-home'])
+    this.router.navigate(['/view-home']);
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 }
